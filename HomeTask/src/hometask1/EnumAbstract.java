@@ -43,7 +43,7 @@ import java.util.Scanner;
         SUNDAY {
             @Override
             WeekDay next() {
-                return WeekDay.MONDAY; //as there is no next day at current week
+                return WeekDay.values()[0]; //as there is no next day at current week
             }
         };
 
