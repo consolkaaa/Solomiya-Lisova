@@ -7,46 +7,43 @@ import java.util.Scanner;
         MONDAY {
             @Override
             WeekDay next() {
-                return WeekDay.TUESDAY;
-
-                //OR can also be implemented with a line
-                //return WeekDay.values()[this.ordinal() + 1];
+                return WeekDay.values()[this.ordinal() + 1];
             }
         },
         TUESDAY {
             @Override
             WeekDay next() {
-                return WeekDay.WEDNESDAY;
+                return WeekDay.values()[this.ordinal() + 1];
             }
         },
         WEDNESDAY {
             @Override
             WeekDay next() {
-                return WeekDay.THURSDAY;
+                return WeekDay.values()[this.ordinal() + 1];
             }
         },
         THURSDAY {
             @Override
             WeekDay next() {
-                return WeekDay.FRIDAY;
+                return WeekDay.values()[this.ordinal() + 1];
             }
         },
         FRIDAY {
             @Override
             WeekDay next() {
-                return WeekDay.SATURDAY;
+                return WeekDay.values()[this.ordinal() + 1];
             }
         },
         SATURDAY {
             @Override
             WeekDay next() {
-                return WeekDay.SUNDAY;
+                return WeekDay.values()[this.ordinal() + 1];
             }
         },
         SUNDAY {
             @Override
             WeekDay next() {
-                return WeekDay.MONDAY;
+                return WeekDay.MONDAY; //as there is no next day at current week
             }
         };
 
