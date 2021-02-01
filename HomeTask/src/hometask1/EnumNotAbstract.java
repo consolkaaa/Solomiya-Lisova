@@ -15,12 +15,11 @@ import java.util.Scanner;
         SATURDAY,
         SUNDAY;
 
-        WeekDay next() {
+        WeekDays next() {
             if (this == SUNDAY) {
-                return WeekDay.MONDAY;
+                return WeekDays.values()[0];
             } else {
-                int next = this.ordinal() + 1;
-                return WeekDay.values()[this.ordinal() + 1];
+                return WeekDays.values()[this.ordinal() + 1];
             }
         }
 
@@ -32,7 +31,7 @@ import java.util.Scanner;
                 String day = scan.nextLine().toUpperCase(Locale.ROOT);
 
                 try {
-                    WeekDay weekDay = WeekDay.valueOf(day);
+                    WeekDays weekDay = WeekDays.valueOf(day);
                     System.out.println("The next day is " + weekDay.next());
                 } catch (Exception e) {
                     System.out.println("Invalid data");
