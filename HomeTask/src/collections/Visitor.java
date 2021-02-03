@@ -1,14 +1,14 @@
-package OOP.relationships.composition;
+package collections;
 
 import OOP.inheritance.Person;
-import collections.Dishes;
-import collections.Menu;
 
 public class Visitor extends Person {
 
+    //Menu menu = new Menu();
+
     //Visitor has an order, order makes no sense without visitor
     //Composition
-    Order order =  new Order();
+    //Order order =  new Order();
 
     public Visitor(String name, int age) {
         super(name, age);
