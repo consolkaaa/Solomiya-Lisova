@@ -1,10 +1,7 @@
-package OOP.Relationships.Aggregation;
+package OOP.relationships.aggregation;
 
-import OOP.Relationships.Assosiation.Cook;
-import OOP.Relationships.Assosiation.Cooker;
-
-import java.util.ArrayList;
-import java.util.Arrays;
+import OOP.relationships.assosiation.Cook;
+import OOP.relationships.assosiation.Cooker;
 
 public class Kitchen {
 

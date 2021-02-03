@@ -1,6 +1,6 @@
-package OOP.Inheritance.Abstraction;
+package OOP.inheritance.abstraction;
 
-import OOP.Relationships.Composition.Visitor;
+import OOP.relationships.composition.Visitor;
 
 //Inheritance and abstraction
 public class Cashier extends Employee {
@@ -14,7 +14,7 @@ public class Cashier extends Employee {
         System.out.println("Hello, would you like to order anything?\n");
         visitor.seeMenu();
         visitor.makeNewOrder();
-    };
+    }
 
     //Implementation of an abstract method
     @Override

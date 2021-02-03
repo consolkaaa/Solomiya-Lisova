@@ -1,9 +1,9 @@
-package OOP.Relationships.Composition;
+package OOP.relationships.composition;
 
-import OOP.Inheritance.Person;
-import OOP.Polymorphism.Burgers;
-import OOP.Polymorphism.Drinks;
-import OOP.Polymorphism.Salads;
+import OOP.inheritance.Person;
+import OOP.polymorphism.Burgers;
+import OOP.polymorphism.Drinks;
+import OOP.polymorphism.Salads;
 
 public class Visitor extends Person {
 

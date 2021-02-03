@@ -1,6 +1,6 @@
-package OOP.Inheritance.Abstraction;
+package OOP.inheritance.abstraction;
 
-import OOP.Inheritance.Person;
+import OOP.inheritance.Person;
 
 //Inheritance and abstraction
 public abstract class Employee extends Person {

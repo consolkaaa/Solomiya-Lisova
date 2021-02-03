@@ -1,4 +1,4 @@
-package OOP.Inheritance;
+package OOP.inheritance;
 
 public class Person {
     String name;

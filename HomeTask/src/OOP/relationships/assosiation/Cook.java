@@ -1,6 +1,6 @@
-package OOP.Relationships.Assosiation;
+package OOP.relationships.assosiation;
 
-import OOP.Inheritance.Abstraction.Employee;
+import OOP.inheritance.abstraction.Employee;
 
 public class Cook extends Employee {
     private int dishesCooked = 0;

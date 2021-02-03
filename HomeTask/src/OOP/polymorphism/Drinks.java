@@ -1,4 +1,4 @@
-package OOP.Polymorphism;
+package OOP.polymorphism;
 
 public enum Drinks implements IMenu {
     DRINK1(35),

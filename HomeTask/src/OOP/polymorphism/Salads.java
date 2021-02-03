@@ -1,4 +1,4 @@
-package OOP.Polymorphism;
+package OOP.polymorphism;
 
 public enum Salads implements IMenu {
     SALAD1(99),
@@ -7,7 +7,7 @@ public enum Salads implements IMenu {
 
     private int price;
 
-    private Salads(int price) {
+     Salads(int price) {
         this.price = price;
     }
 

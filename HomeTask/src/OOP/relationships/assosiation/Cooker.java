@@ -1,4 +1,4 @@
-package OOP.Relationships.Assosiation;
+package OOP.relationships.assosiation;
 
 public class Cooker {
 

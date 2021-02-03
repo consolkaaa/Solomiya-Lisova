@@ -1,10 +1,8 @@
 package OOP;
 
-import OOP.Polymorphism.IMenu;
-import OOP.Polymorphism.Salads;
-import OOP.Relationships.Aggregation.Kitchen;
-import OOP.Relationships.Composition.Visitor;
-import OOP.Inheritance.Abstraction.Cashier;
+import OOP.relationships.aggregation.Kitchen;
+import OOP.relationships.composition.Visitor;
+import OOP.inheritance.abstraction.Cashier;
 
 public class BurgerKing {
 

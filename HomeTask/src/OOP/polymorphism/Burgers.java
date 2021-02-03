@@ -1,4 +1,4 @@
-package OOP.Polymorphism;
+package OOP.polymorphism;
 
 public enum Burgers implements IMenu {
     BURGER1(99),

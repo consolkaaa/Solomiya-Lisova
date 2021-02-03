@@ -1,4 +1,4 @@
-package OOP.Encapsulation;
+package OOP.encapsulation;
 
 public class CashRegister {
     private int cash = 0;
