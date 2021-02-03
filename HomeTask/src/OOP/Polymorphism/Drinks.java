@@ -1,6 +1,6 @@
 package OOP.Polymorphism;
 
-public enum Drinks implements IMenu{
+public enum Drinks implements IMenu {
     DRINK1(35),
     DRINK2(45),
     DRINK3(55);
@@ -21,6 +21,7 @@ public enum Drinks implements IMenu{
     }
 
     public static void showMenu(){
+
         int number = 1;
         for (Drinks drinks : Drinks.values()) {
             System.out.println(number++ + "." + drinks + " - " + drinks.getPrice() + "uah");

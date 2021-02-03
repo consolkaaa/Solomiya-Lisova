@@ -10,7 +10,7 @@ public abstract class Employee extends Person {
         super(name, age);
     }
 
-    public abstract void employ();
+    public abstract void hire();
 
     public void fire(){
         employed = false;

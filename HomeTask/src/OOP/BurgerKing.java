@@ -1,6 +1,7 @@
 package OOP;
 
 import OOP.Polymorphism.IMenu;
+import OOP.Polymorphism.Salads;
 import OOP.Relationships.Aggregation.Kitchen;
 import OOP.Relationships.Composition.Visitor;
 import OOP.Inheritance.Abstraction.Cashier;
@@ -13,21 +14,12 @@ public class BurgerKing {
         Kitchen kitchen = new Kitchen();
 
         visitor.seeMenu();
-        cashier.sayHello();
-        visitor.makeNewOrder();
+        cashier.takeOrder(visitor);
 
-        System.out.println("Number of turned on cookers: " + kitchen.checkNumberOfCookersOn());
+//        Salads salad = Salads.SALAD1;
+//        salad.showCategory();
 
-
-
-
-
-
-
-//
-//        visitor.orderedBurgers.add(Burgers.BURGER1);
-//        visitor.orderedDrinks.add(Drinks.DRINK3);
-//        visitor.orderedSalads.add(Salads.SALAD1);
+        System.out.println("\nNumber of turned on cookers: " + kitchen.checkNumberOfCookersOn());
 
 
     }

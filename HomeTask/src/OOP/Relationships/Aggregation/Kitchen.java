@@ -11,7 +11,6 @@ public class Kitchen {
     //Kitchen has cook and cookers
     //Aggregation
     Cook cook1;
-
     Cooker cooker1;
     Cooker cooker2;
     Cooker[] cookersArray;

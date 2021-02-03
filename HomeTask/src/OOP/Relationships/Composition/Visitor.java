@@ -4,7 +4,6 @@ import OOP.Inheritance.Person;
 import OOP.Polymorphism.Burgers;
 import OOP.Polymorphism.Drinks;
 import OOP.Polymorphism.Salads;
-import OOP.Relationships.Composition.Order;
 
 public class Visitor extends Person {
 
@@ -16,7 +15,7 @@ public class Visitor extends Person {
         super(name, age);
     }
 
-    //not finished yet
+    //method not finished yet
     public void makeNewOrder(){
         order.orderedBurgers.add(Burgers.BURGER1);
         order.orderedDrinks.add(Drinks.DRINK3);
@@ -29,7 +28,5 @@ public class Visitor extends Person {
         Salads.showMenu();
         Burgers.showMenu();
         Drinks.showMenu();
-
     }
-
 }

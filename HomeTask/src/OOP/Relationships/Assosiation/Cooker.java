@@ -2,12 +2,11 @@ package OOP.Relationships.Assosiation;
 
 public class Cooker {
 
-    private int inventoryNumber;
+    private int cookerNumber;
     public boolean isOn;
 
-    public Cooker(int inventoryNumber, boolean isOn) {
-        this.inventoryNumber = inventoryNumber;
+    public Cooker(int cookerNumber, boolean isOn) {
+        this.cookerNumber = cookerNumber;
         this.isOn = isOn;
     }
-
 }

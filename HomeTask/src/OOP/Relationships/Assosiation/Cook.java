@@ -17,7 +17,7 @@ public class Cook extends Employee {
     }
 
     @Override
-    public void employ() {
+    public void hire() {
         employed = true;
         System.out.println("Congratulations on being employed as a cook!");
     }
