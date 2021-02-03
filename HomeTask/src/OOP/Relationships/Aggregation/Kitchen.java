@@ -10,10 +10,10 @@ public class Kitchen {
 
     //Kitchen has cook and cookers
     //Aggregation
-    Cook cook1;
-    Cooker cooker1;
-    Cooker cooker2;
-    Cooker[] cookersArray;
+    private Cook cook1;
+    private Cooker cooker1;
+    private Cooker cooker2;
+    private Cooker[] cookersArray;
 
     public Kitchen(){
         cooker1 = new Cooker(1, true);
