@@ -17,7 +17,7 @@ public class Visitor extends Person {
     public void seeMenu(){
         System.out.println("On the menu:\n");
         for (Dishes dish: Menu.dishesList) {
-            System.out.println(dish.name);
+            System.out.println(dish.getName());
         }
     }
 }
