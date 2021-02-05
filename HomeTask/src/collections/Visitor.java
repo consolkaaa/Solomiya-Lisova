@@ -9,13 +9,14 @@ public class Visitor extends Person {
     }
 
     public void seeMenu(){
-        Menu.printDishesList();
+        Menu.showMenu();
     }
 
     public void seeMenuCategory(String category){
         try {
             Menu.showMenuCategory(category);
         } catch (Exception e){
+            int n = 5;
             System.out.println("No such category");     //FIX
         }
     }

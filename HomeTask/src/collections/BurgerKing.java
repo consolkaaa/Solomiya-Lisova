@@ -9,19 +9,23 @@ public class BurgerKing {
     public static void main(String[] args) {
         Visitor visitor = new Visitor("Solomiya", 20);
         Cashier cashier = new Cashier("Vasyl", 29);
+        Menu menu = new Menu();
 
-//        visitor.seeMenu();
-//
-//        Menu.sortDishesByPrice();
-//        visitor.seeMenu();
+        //isBiggerThan   isSmallerThan
+        Menu.sortDishesByPrice(">", 100);
+        Menu.sortDishesByPrice("<", 150);
+
+
+//        int price = Menu.dishesList.get(0).getPrice();
+//        System.out.println(price);
+
+
+
+        //visitor.seeMenu();
+
 
         //Salads Burgers Drinks
-//        Menu.showMenuCategory("Salads");
-//        Menu.showMenuCategory("Burgers");
-//        Menu.showMenuCategory("Drinks");
-//        Menu.showMenuCategory("g");
-
-          visitor.seeMenuCategory("Burrs");
+        //visitor.seeMenuCategory("Burgers");
 
     }
 }

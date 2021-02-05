@@ -43,19 +43,66 @@ public class Menu {
 
     public static void sortDishesByPrice(){
         Collections.sort(dishesList, priceComparator);
-        //printDishesList();
+        System.out.println("Sorted by price");
+        printDishesList(dishesList);
+
     }
 
-    public static void printDishesList(){
-        System.out.println("\nOn the menu:\n");
-        System.out.println("Dish\t\tPrice");
-        for (Dishes dish: dishesList) {
+    public static void sortDishesByPrice(String criteria, int value){
+        int number = countDishesByPrice(criteria, value);
+
+        if (number == dishesList.size()){
+            System.out.println("All the dishes correspond to your criteria");
+        }
+        else if (number >= 1){
+            System.out.println("One or more dish corresponds to your criteria");
+        }
+        else{
+            System.out.print("There is no dish corresponding to your criteria");
+        }
+
+    }
+
+    public static int countDishesByPrice(String check, int value){
+        Collections.sort(dishesList, priceComparator);
+
+        int counter = 0;
+
+        switch (check){
+            case ">": {
+                for (Dishes dish:dishesList) {
+                    if (dish.getPrice() > value){
+                        counter++;
+                    }
+                }
+            } break;
+            case "<": {
+                for (Dishes dish:dishesList) {
+                    if (dish.getPrice() < value){
+                        counter++;
+                    }
+                }
+            }break;
+        }
+        return counter;
+    }
+
+    public static void printDishesList(List<Dishes> list){
+        for (Dishes dish: list) {
             System.out.println(dish.getName() + "\t\t" + dish.getPrice());
         }
     }
 
+    public static void showMenu(){
+        System.out.println("\nOn the menu:");
+        showMenuCategory("Salads");
+        showMenuCategory("Burgers");
+        showMenuCategory("Salads");
+
+    }
+
     public static void showMenuCategory(String category){
-        System.out.println("\nCategory:");
+        System.out.println("\nCategory:\t" + category);
         System.out.println("Dish\t\tPrice");
         for (Dishes dish : dishesList) {
             int comp = dish.getCategory().compareTo(category);
@@ -64,5 +111,11 @@ public class Menu {
             }
         }
     }
+
+//    public static void checkCriteria(){
+//
+//
+//
+//    }
 
 }
