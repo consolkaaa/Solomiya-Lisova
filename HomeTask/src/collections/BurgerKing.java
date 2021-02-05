@@ -11,21 +11,31 @@ public class BurgerKing {
         Cashier cashier = new Cashier("Vasyl", 29);
         Menu menu = new Menu();
 
-        //isBiggerThan   isSmallerThan
-        Menu.sortDishesByPrice(">", 100);
-        Menu.sortDishesByPrice("<", 150);
+        visitor.seeMenu();
+        drawSeparator();
 
+        // Salads Burgers Drinks
+        visitor.seeMenuCategory("Burgers");
+        drawSeparator();
 
-//        int price = Menu.dishesList.get(0).getPrice();
-//        System.out.println(price);
+        Menu.showSortedDishes();
+        drawSeparator();
 
+        //                < = >
+        Menu.checkPrice("<", 100);
+        drawSeparator();
 
+        Menu.checkPrice("=", 80);
+        drawSeparator();
 
-        //visitor.seeMenu();
+        Menu.checkPrice(">", 100);
+        drawSeparator();
 
+        visitor.seeSmallestPricesInEachCategory();
 
-        //Salads Burgers Drinks
-        //visitor.seeMenuCategory("Burgers");
+    }
 
+    private static void drawSeparator(){
+        System.out.println("\n------------------");
     }
 }

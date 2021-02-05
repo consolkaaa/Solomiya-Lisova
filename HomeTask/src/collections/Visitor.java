@@ -16,10 +16,18 @@ public class Visitor extends Person {
         try {
             Menu.showMenuCategory(category);
         } catch (Exception e){
-            int n = 5;
             System.out.println("No such category");     //FIX
         }
     }
 
+    public void seeSmallestPricesInEachCategory(){
+        Menu.traverse();
+    }
 
-}
+
+
+
+
+
+
+    }
