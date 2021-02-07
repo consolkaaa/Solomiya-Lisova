@@ -1,8 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="61061b6c-87d8-4c90-86b9-19363192f26b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/OOP/encapsulation/CashRegister.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/OOP/inheritance/Person.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/OOP/inheritance/abstraction/Cashier.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/OOP/inheritance/abstraction/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/OOP/polymorphism/Burgers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/OOP/polymorphism/Drinks.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/OOP/polymorphism/IMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/OOP/polymorphism/Salads.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/OOP/relationships/aggregation/Kitchen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/OOP/relationships/assosiation/Cook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/OOP/relationships/assosiation/Cooker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/OOP/relationships/composition/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/OOP/relationships/composition/Visitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/collections/BurgerKing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/collections/Dishes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/collections/Menu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/collections/Visitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hometask1/EnumAbstract.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hometask1/EnumNotAbstract.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hometask1/RegularExpression.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/OOP/encapsulation/CashRegister.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/OOP/inheritance/Person.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/OOP/inheritance/abstraction/Cashier.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/OOP/inheritance/abstraction/Employee.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/OOP/polymorphism/Burgers.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/OOP/polymorphism/Drinks.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/OOP/polymorphism/IMenu.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/OOP/polymorphism/Salads.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/OOP/relationships/aggregation/Kitchen.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/OOP/relationships/assosiation/Cook.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/OOP/relationships/assosiation/Cooker.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/OOP/relationships/composition/Order.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/OOP/relationships/composition/Visitor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/collections/BurgerKing.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/collections/Dishes.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/collections/Menu$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/collections/Menu$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/collections/Menu.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/collections/Visitor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/hometask1/RegularExpression.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/hometask1/WeekDay$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/hometask1/WeekDay$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/hometask1/WeekDay$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/hometask1/WeekDay$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/hometask1/WeekDay$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/hometask1/WeekDay$6.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/hometask1/WeekDay$7.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/hometask1/WeekDay.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/hometask1/WeekDays.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,14 +73,47 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration name="BurgerKing" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="collections.BurgerKing" />
+      <module name="Solomiya-Lisova" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="collections.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.BurgerKing" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+      <changelist id="61061b6c-87d8-4c90-86b9-19363192f26b" name="Default Changelist" comment="" />
       <created>1612700215778</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612700215778</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
