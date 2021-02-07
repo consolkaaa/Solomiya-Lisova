@@ -19,23 +19,19 @@ public class BurgerKing {
         Menu.showSortedDishes();
         drawSeparator();
 
-        //                < = >
-        Menu.checkPrice("<", 100);
+        Menu.checkAnyMatch("=", 80);
         drawSeparator();
 
-        Menu.checkPrice("=", 80);
+        Menu.checkAllMatches("<", 100);
         drawSeparator();
 
-        Menu.checkPrice(">", 100);
+        Menu.checkNoneMatches(">", 100);
+        drawSeparator();
+
+        visitor.seeVegeterian();
         drawSeparator();
 
         visitor.seeSmallestPricesInEachCategory();
-
-        Menu.printVegeterian();
-
-
-        //Menu.predicator("Salads");
-
 
     }
 

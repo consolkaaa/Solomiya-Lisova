@@ -14,7 +14,6 @@ public class Menu{
     private static Dishes drink1, drink2, drink3;
 
     public static List<Dishes> dishesList = new ArrayList<Dishes>();
-    //public static Map<Integer,Dishes> dishNumber = new TreeMap<>();
 
     public Menu(){
         salad1 = new Dishes("salad1",81, 300, "Salads", true);
@@ -35,16 +34,6 @@ public class Menu{
     public static void printDishesList(List<Dishes> list){
         list.stream().map(dish -> dish.getName() + "\t\t" + dish.getPrice())
                      .forEach(dishInfo -> System.out.println(dishInfo));
-    }
-
-    private static Predicate<Dishes> isVeggie = Dishes::getVegeterian;
-
-    public static void printVegeterian(){
-        List<Dishes> isVeggieList = new ArrayList<>();
-        isVeggieList = dishesList.stream().filter(isVeggie).collect(Collectors.toList());
-
-        System.out.println("\nThere are " + isVeggieList.size() + " vegeterian dishes:");
-        printDishesList(isVeggieList);
     }
 
     private static BiPredicate<Dishes, String> belongsToCategory = (dish, category) -> category.equals(dish.getCategory());
@@ -79,59 +68,64 @@ public class Menu{
         printDishesList(dishesList);
     }
 
-
-//    public static void checkPrice(String operator, int value){
-//        int number = countDishesByPrice(operator, value);
-//
-//        //dishesList.stream().filter()
-//
-//        if (number == dishesList.size()){
-//            System.out.println("\nAll the dishes correspond to your criteria \"price" + operator + value + "\"");
-//        }
-//        else if (number >= 1){
-//            System.out.println("\nOne or more dish corresponds to your criteria \"price" + operator + value + "\"");
-//        }
-//        else{
-//            System.out.print("\nThere is no dish corresponding to your criteria \"price" + operator + value + "\"\n");
-//        }
-//    }
-
-    private static int countDishesByPrice(String operator, int value){
-
-        switch (operator){
-            case ">": {
-                return (int)dishesList.stream().filter(dish -> dish.getPrice() > value).count();
-            }
-            case "<": {
-                return (int)dishesList.stream().filter(dish -> priceIsLessThan.test(dish,value)).count();
-            }
-            case "=": {
-                return (int)dishesList.stream().filter(dish -> priceIsEqual.test(dish,value)).count();
-            }
-        }
-        return 0;
-    }
-
     private static BiPredicate<Dishes, Integer> priceIsBiggerThan = (dish, value) -> dish.getPrice() > value;
     private static BiPredicate<Dishes, Integer> priceIsLessThan = (dish, value) -> dish.getPrice() < value;
     private static BiPredicate<Dishes, Integer> priceIsEqual = (dish, value) -> dish.getPrice() == value;
+    private static Predicate<Dishes> isVeggie = Dishes::getVegeterian;
 
-    public static void checkAnyMatch(BiPredicate<Dishes, Integer> predicate, int value){
-        if (dishesList.stream().anyMatch(dish -> predicate.test(dish, value))){
-            //System.out.println("At least one dish has price " + operator + " than " + value);
+    public static void printVegeterian(){
+        List<Dishes> isVeggieList = new ArrayList<>();
+        isVeggieList = dishesList.stream().filter(isVeggie).collect(Collectors.toList());
+
+        System.out.println("\nThere are " + isVeggieList.size() + " vegeterian dishes:");
+        printDishesList(isVeggieList);
+    }
+
+    public static void checkAnyMatch(String operator, int price){
+        BiPredicate<Dishes, Integer> predicate = getPredicate(operator);
+
+        if (dishesList.stream().anyMatch(dish -> predicate.test(dish, price))){
+            System.out.println("At least one dish has price " + operator + " " + price);
+        }else{
+            System.out.println("None of the dishes has price " + operator + " " + price);
         }
     }
 
-    public static void checkAllMatches(BiPredicate<Dishes, Integer> predicate, int value){
-        if (dishesList.stream().allMatch(dish -> predicate.test(dish, value))){
-            //System.out.println("All the dishes have price " + operator + " than " + value);
+    public static void checkAllMatches(String operator, int price){
+        BiPredicate<Dishes, Integer> predicate = getPredicate(operator);
+
+        if (dishesList.stream().allMatch(dish -> predicate.test(dish, price))){
+            System.out.println("All the dishes have price " + operator + " " + price);
+        }else{
+            System.out.println("Not all or none dishes have price " + operator + " " + price);
         }
     }
 
-    public static void checkNoneMatches(BiPredicate<Dishes, Integer> predicate, int value){
-        if (dishesList.stream().noneMatch(dish -> predicate.test(dish, value))){
-            //System.out.println("None of the dishes have price " + operator + " than " + value);
+    public static void checkNoneMatches(String operator, int price){
+        BiPredicate<Dishes, Integer> predicate = getPredicate(operator);
+
+        if (dishesList.stream().noneMatch(dish -> predicate.test(dish, price))){
+            System.out.println("None of the dishes has price " + operator + " " + price);
+        }else{
+            System.out.println("One or more dishes have price " + operator + " " + price);
         }
+    }
+
+    private static BiPredicate<Dishes, Integer> getPredicate(String operator){
+        BiPredicate<Dishes, Integer> predicate;
+
+        switch (operator){
+            case ">": {
+                return priceIsBiggerThan;
+            }
+            case "<": {
+                return priceIsLessThan;
+            }
+            case "=": {
+                return priceIsEqual;
+            }
+        }
+        return null;
     }
 
     private static Dishes getDishWithSmallestPrice(String category){
@@ -146,7 +140,6 @@ public class Menu{
 
     public static void traverse(){
         List<Dishes> smallestPrice = new ArrayList<>();
-
         smallestPrice.add(getDishWithSmallestPrice("Salads"));
         smallestPrice.add(getDishWithSmallestPrice("Burgers"));
         smallestPrice.add(getDishWithSmallestPrice("Drinks"));

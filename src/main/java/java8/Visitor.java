@@ -24,4 +24,10 @@ public class Visitor extends Person {
         Menu.traverse();
     }
 
+    public void seeVegeterian(){
+        Menu.printVegeterian();
     }
+
+}
+
+
