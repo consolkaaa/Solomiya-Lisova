@@ -1,266 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="eeb44915-d1b4-4aee-8560-cba42ea0eecd" name="Default Changelist" comment="" />
+    <list default="true" id="61061b6c-87d8-4c90-86b9-19363192f26b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="CodeInsightWorkspaceSettings">
-    <option name="optimizeImportsOnTheFly" value="true" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Interface" />
-        <option value="Enum" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="OOP" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
-  </component>
-  <component name="ProjectId" id="1nmq56SQWwSkh8skmkUD9u1GFBs" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="1o9YKyjhrRVaobQFHvAOkmjOu0j" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
   </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/java" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="collections" />
-      <recent name="OOP.Polymorphism" />
-      <recent name="OOP" />
-      <recent name="OOP.Polymorphism.Encapsulation" />
-      <recent name="OOP.Relationships.Aggregation" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="OOP.relationships.composition" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Application.BurgerKing">
-    <configuration name="BurgerKing" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="collections.BurgerKing" />
-      <module name="Solomiya-Lisova" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="OOP.relationships.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="WeekDay" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="hometask1.WeekDay" />
-      <module name="Solomiya-Lisova" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="hometask1.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="WeekDays" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="hometask1.WeekDays" />
-      <module name="Solomiya-Lisova" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="hometask1.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.BurgerKing" />
-        <item itemvalue="Application.WeekDays" />
-        <item itemvalue="Application.WeekDay" />
-      </list>
-    </recent_temporary>
-  </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="eeb44915-d1b4-4aee-8560-cba42ea0eecd" name="Default Changelist" comment="" />
-      <created>1612005428304</created>
+      <created>1612700215778</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1612005428304</updated>
+      <updated>1612700215778</updated>
     </task>
-    <task id="LOCAL-00001" summary="changed next() function">
-      <created>1612123660972</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1612123660973</updated>
-    </task>
-    <task id="LOCAL-00002" summary="changed sunday">
-      <created>1612124201708</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1612124201708</updated>
-    </task>
-    <task id="LOCAL-00003" summary=".">
-      <created>1612186999436</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1612186999436</updated>
-    </task>
-    <task id="LOCAL-00004" summary="draft">
-      <created>1612304658582</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1612304658583</updated>
-    </task>
-    <task id="LOCAL-00005" summary="added comments">
-      <created>1612345884647</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1612345884647</updated>
-    </task>
-    <task id="LOCAL-00006" summary="made katchen fields private">
-      <created>1612353775892</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1612353775892</updated>
-    </task>
-    <task id="LOCAL-00007" summary="renamed packages">
-      <created>1612392009251</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1612392009251</updated>
-    </task>
-    <task id="LOCAL-00008" summary="renamed packages">
-      <created>1612392058567</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1612392058567</updated>
-    </task>
-    <task id="LOCAL-00009" summary="added collections">
-      <created>1612396241075</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1612396241075</updated>
-    </task>
-    <task id="LOCAL-00010" summary="added showMenuCategory">
-      <created>1612474974762</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1612474974762</updated>
-    </task>
-    <task id="LOCAL-00011" summary="draft sortDishesByPrice()">
-      <created>1612487538513</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1612487538513</updated>
-    </task>
-    <task id="LOCAL-00012" summary="added collections package">
-      <created>1612534044825</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1612534044825</updated>
-    </task>
-    <task id="LOCAL-00013" summary="added collections package">
-      <created>1612534100918</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1612534100918</updated>
-    </task>
-    <option name="localTasksCounter" value="14" />
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="gtdrftyh" />
-    <MESSAGE value="changed next() function" />
-    <MESSAGE value="changed sunday" />
-    <MESSAGE value="." />
-    <MESSAGE value="draft" />
-    <MESSAGE value="added encapsulation" />
-    <MESSAGE value="added comments" />
-    <MESSAGE value="made katchen fields private" />
-    <MESSAGE value="renamed packages" />
-    <MESSAGE value="added collections" />
-    <MESSAGE value="added showMenuCategory" />
-    <MESSAGE value="draft sortDishesByPrice()" />
-    <MESSAGE value="added collections package" />
-    <option name="LAST_COMMIT_MESSAGE" value="added collections package" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.NullPointerException" package="java.lang" />
-          <option name="timeStamp" value="10" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
