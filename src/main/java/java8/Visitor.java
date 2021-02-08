@@ -2,6 +2,9 @@ package java8;
 
 import OOP.inheritance.Person;
 
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+
 public class Visitor extends Person {
 
     public Visitor(String name, int age) {
@@ -26,6 +29,13 @@ public class Visitor extends Person {
 
     public void seeVegeterian(){
         Menu.printVegeterian();
+    }
+
+    public void makeOrder(){
+        Order order = new Order();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMM yyyy, HH:mm");
+        System.out.println("\nOrder time is: " + order.getDateAndTime().format(formatter));
     }
 
 }

@@ -3,6 +3,7 @@ package java8;
 import java.sql.PreparedStatement;
 import java.util.*;
 import java.util.function.BiPredicate;
+import java.util.function.Consumer;
 import java.util.function.DoublePredicate;
 import java.util.function.Predicate;
 import java.util.stream.Collector;
@@ -138,8 +139,10 @@ public class Menu{
 
     private static Comparator<Dishes> nameComparator = (o1, o2) -> o1.getName().compareTo(o2.getName());
 
+    //I haven't made this method with Java8 yet, had some difficulties
     public static void traverse(){
         List<Dishes> smallestPrice = new ArrayList<>();
+
         smallestPrice.add(getDishWithSmallestPrice("Salads"));
         smallestPrice.add(getDishWithSmallestPrice("Burgers"));
         smallestPrice.add(getDishWithSmallestPrice("Drinks"));
@@ -147,5 +150,4 @@ public class Menu{
         System.out.println("\nDishes with the smallest price from each category (sorted alphabetically):");
         printDishesList(smallestPrice);
     }
-
 }

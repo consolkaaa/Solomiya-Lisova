@@ -32,6 +32,10 @@ public class BurgerKing {
         drawSeparator();
 
         visitor.seeSmallestPricesInEachCategory();
+        drawSeparator();
+
+        //shows order time
+        visitor.makeOrder();
 
     }
 
