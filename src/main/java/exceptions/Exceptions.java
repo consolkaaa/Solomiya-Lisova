@@ -10,8 +10,10 @@ import java.util.Scanner;
 public class Exceptions {
     public static void main(String[] args){
 
-        unchecked();
         checked();
+        unchecked();
+
+        resorceStatement();
 
     }
 
@@ -20,22 +22,39 @@ public class Exceptions {
 
         try{
             for (int i = 0; i <= array.length; i++) {
-                System.out.println(array[i]);
+                System.out.print(array[i] + " ");
             }
         }catch (ArrayIndexOutOfBoundsException ae){
-            System.out.println("Array index is out of boundaries.");
+            System.out.println("\nArray index is out of boundaries.");
             ae.printStackTrace();
         }
     }
 
     private static void checked(){
         File file = new File("newfile.txt");
+        Scanner scanner = null;
 
         try {
-            Scanner scanner = new Scanner(file);
+            scanner = new Scanner(file);
         }catch (FileNotFoundException fileExc){
-            System.out.println("File name is incorrect");
+            System.out.println("File name is incorrect\n");
             fileExc.printStackTrace();
         }
+        finally {
+            if(scanner!=null) {
+                scanner.close();
+            }
+        }
+    }
+
+    public static void resorceStatement(){
+        File file = new File("newfile.txt");
+
+        try(Scanner scanner = new Scanner(file)){
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 }
