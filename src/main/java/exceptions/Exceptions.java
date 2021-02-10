@@ -10,9 +10,11 @@ import java.util.Scanner;
 public class Exceptions {
     public static void main(String[] args){
 
+        //Task 1
         checked();
         unchecked();
 
+        //Task 2
         resorceStatement();
 
     }
