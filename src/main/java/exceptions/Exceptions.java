@@ -19,28 +19,17 @@ public class Exceptions {
 
     }
 
-    private static void unchecked(){
-        int[] array = {0, 1, 2, 3};
-
-        try{
-            for (int i = 0; i <= array.length; i++) {
-                System.out.print(array[i] + " ");
-            }
-        }catch (ArrayIndexOutOfBoundsException ae){
-            System.out.println("\nArray index is out of boundaries.");
-            ae.printStackTrace();
-        }
-    }
-
     private static void checked(){
+        System.err.println("\n------Checked------\n");
+
         File file = new File("newfile.txt");
         Scanner scanner = null;
 
         try {
             scanner = new Scanner(file);
         }catch (FileNotFoundException fileExc){
-            System.out.println("File name is incorrect\n");
-            fileExc.printStackTrace();
+            System.err.println("File name is incorrect\n");
+            //fileExc.printStackTrace();
         }
         finally {
             if(scanner!=null) {
@@ -49,14 +38,33 @@ public class Exceptions {
         }
     }
 
+    private static void unchecked(){
+        System.err.println("\n------Unchecked------\n");
+
+        int[] array = {0, 1, 2, 3};
+
+        try{
+            for (int i = 0; i <= array.length; i++) {
+                System.out.print(array[i] + " ");
+            }
+        }catch (ArrayIndexOutOfBoundsException ae){
+            System.err.println("\nArray index is out of boundaries.\n");
+            //ae.printStackTrace();
+        }
+    }
+
     public static void resorceStatement(){
+        System.err.println("\n------Try-with-resource statement------\n");
+
         File file = new File("newfile.txt");
 
         try(Scanner scanner = new Scanner(file)){
-
+            while(scanner.hasNextLine()){
+                String line = scanner.nextLine();
+            }
         } catch (Exception e){
-            e.printStackTrace();
+            System.err.println("File not found\n");
+            //e.printStackTrace();
         }
-
     }
 }
