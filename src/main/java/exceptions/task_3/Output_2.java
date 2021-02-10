@@ -1,4 +1,4 @@
-package exceptions;
+package exceptions.task_3;
 
 public class Output_2 extends Output_1 {
 

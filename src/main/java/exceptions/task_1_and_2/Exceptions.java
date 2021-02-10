@@ -1,4 +1,4 @@
-package exceptions;
+package exceptions.task_1_and_2;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -27,6 +27,10 @@ public class Exceptions {
 
         try {
             scanner = new Scanner(file);
+            while(scanner.hasNextLine()){
+                String line = scanner.nextLine();
+                System.out.println(line);
+            }
         }catch (FileNotFoundException fileExc){
             System.err.println("File name is incorrect\n");
             //fileExc.printStackTrace();
@@ -61,6 +65,7 @@ public class Exceptions {
         try(Scanner scanner = new Scanner(file)){
             while(scanner.hasNextLine()){
                 String line = scanner.nextLine();
+                System.out.println(line);
             }
         } catch (Exception e){
             System.err.println("File not found\n");

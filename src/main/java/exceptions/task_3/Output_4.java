@@ -1,9 +1,10 @@
-package exceptions;
+package exceptions.task_3;
 
-public class Output_3 extends Output_1 {
+public class Output_4 extends Output_1 {
+
     public static void main(String[] args) {
 
-        System.err.println("\n------Output3------\n");
+        System.err.println("\n------Output4------\n");
 
         System.err.println("#1.in");
         try {
@@ -20,12 +21,22 @@ public class Output_3 extends Output_1 {
         try {
             System.err.println(".   #2.in");
             g();
-            h();
         }catch(Exception e1){
             System.err.println(".   #2.CATCH");
         }finally {
             System.err.println(".   #2.out");
         }
+
     }
 
+    public static void g() {
+        try {
+            System.err.println(".   .   #3.in");
+            h();
+        }catch(Exception e2){
+            System.err.println(".   .   #3.CATCH");
+        }finally {
+            System.err.println(".   .   #3.out");
+        }
+    }
 }
