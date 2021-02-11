@@ -1,6 +1,6 @@
 package java8;
 
-import collections.Dishes;
+import java8.Dishes;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -17,6 +17,10 @@ public class Order {
     }
 
     public void printCheck(){
+        int price = 0;
 
+        for (Dishes dish: orderedDishes) {
+            price += dish.getPrice();
+        }
     }
 }
