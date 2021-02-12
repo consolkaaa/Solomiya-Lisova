@@ -1,6 +1,11 @@
 package java8;
 
 import OOP.inheritance.abstraction.Cashier;
+import java8.Dishes;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class BurgerKing {
 
@@ -34,8 +39,11 @@ public class BurgerKing {
         visitor.seeSmallestPricesInEachCategory();
         drawSeparator();
 
-        //shows order time
-        visitor.makeOrder();
+        List<Dishes> order1 = new ArrayList<>();
+        order1.add(Menu.burger1);
+        order1.add(Menu.salad1);
+
+        visitor.makeOrder(order1);
 
     }
 

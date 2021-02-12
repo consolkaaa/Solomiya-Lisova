@@ -1,13 +1,16 @@
 package java8;
 
 import OOP.inheritance.Person;
-import collections.Dishes;
 
 import java.awt.*;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Visitor extends Person {
+
+    @MakeWithout(withoutMeat = false, withoutOnions = false)
+    List<Dishes> orderList = new ArrayList<>();
 
     public Visitor(String name, int age) {
         super(name, age);
@@ -33,18 +36,11 @@ public class Visitor extends Person {
         Menu.printVegeterian();
     }
 
-    @MakeWithout(withoutMeat = true, withoutOnions = false)
-    public void makeOrder(){
-        Order order = new Order();
+   // @MakeWithout(withoutMeat = true, withoutOnions = false)
+    public void makeOrder(@MakeWithout(withoutMeat = true, withoutOnions = false) List<Dishes> orderList){
 
-//        @MakeWithout(withoutMeat = false, withoutOnions = false) Menu.burger1;
-//        Menu.dishesList.get(0);
-
-//        order.orderedDishes.add(@MakeWithout(withoutMeat = false, withoutOnions = false) Menu.burger1;
-//        order.orderedDishes.add(Menu.salad1);
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMM yyyy, HH:mm");
-        System.out.println("\nOrder time is: " + order.getDateAndTime().format(formatter));
+        Order order = new Order(orderList);
+        order.printCheck();
     }
 
 }
