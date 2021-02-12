@@ -2,10 +2,12 @@ package java8;
 
 import java.lang.annotation.*;
 
+
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.TYPE, ElementType.PARAMETER, ElementType.FIELD, ElementType.METHOD, ElementType.ANNOTATION_TYPE, ElementType.TYPE_PARAMETER})
+@Inherited
+@Target({ElementType.TYPE, ElementType.PARAMETER, ElementType.FIELD, ElementType.METHOD, ElementType.CONSTRUCTOR})
 public @interface MakeWithout {
-    boolean withoutOnions() default true;
-    boolean withoutMeat() default true;
+    public boolean withoutOnions() default true;
+    public boolean withoutMeat() default true;
 
 }

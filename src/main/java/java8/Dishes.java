@@ -32,6 +32,10 @@ public class Dishes {
         this.isVegeterian = isVegeterian;
     }
 
+    public void countWithoutProduct(double n){
+        System.out.println(this.getName() + "\t\t" + Math.round(this.getPrice() * n));
+    }
+
 
 
 }

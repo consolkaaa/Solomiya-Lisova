@@ -3,6 +3,8 @@ package java8;
 import OOP.inheritance.Person;
 
 import java.awt.*;
+import java.lang.reflect.Field;
+import java.text.Annotation;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,11 +38,15 @@ public class Visitor extends Person {
         Menu.printVegeterian();
     }
 
-   // @MakeWithout(withoutMeat = true, withoutOnions = false)
+   //@MakeWithout(withoutMeat = true, withoutOnions = false)
     public void makeOrder(@MakeWithout(withoutMeat = true, withoutOnions = false) List<Dishes> orderList){
 
         Order order = new Order(orderList);
+
         order.printCheck();
+
+
+
     }
 
 }
