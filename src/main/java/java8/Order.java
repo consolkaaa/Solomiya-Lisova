@@ -10,17 +10,16 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.BiConsumer;
-import java.util.function.BiPredicate;
-import java.util.function.Consumer;
-import java.util.function.Predicate;
+import java.util.function.*;
 import java.util.stream.Collectors;
 
 public class Order {
 
-    @MakeWithout(withoutMeat = true, withoutOnions = false)
+    @MakeWithout(withoutMeat = false, withoutOnions = true)
     private List<Dishes> orderedDishes = new ArrayList<>();
     private LocalDateTime dateAndTime=  LocalDateTime.now();
+
+   private MakeWithout makeWithout;
 
     public Order(List<Dishes> orderedDishes){
         this.orderedDishes = orderedDishes;
@@ -32,84 +31,43 @@ public class Order {
 
     private int totalprice = 0;
 
-    public void printCheck() {
-         int price = 0;
+    private BiPredicate<Dishes, MakeWithout> withoutBoth = (dish,without) -> without.withoutMeat() & without.withoutOnions();
+    private BiPredicate<Dishes, MakeWithout> withoutMeat = (dish,without) -> without.withoutMeat() & !without.withoutOnions();
+    private BiPredicate<Dishes, MakeWithout> withoutOnion = (dish,without) -> !without.withoutMeat() & without.withoutOnions();
+    private BiPredicate<Dishes, MakeWithout> withBoth = (dish,without) -> !without.withoutMeat() & !without.withoutOnions();
 
-        Predicate<Annotation> isMakeWithout = annotation -> annotation.annotationType().equals(MakeWithout.class);
+    private BiConsumer<BiPredicate, Double> check = (predicate, n) -> orderedDishes.stream().filter(dish -> predicate.test(dish, makeWithout)).
+            forEach(dish -> {
+                double lowedPrice = Math.round(dish.getPrice() * n);
+                System.out.println(dish.getName() + "\t\t" + lowedPrice);
+                totalprice += Math.round(lowedPrice);
+            });
+
+    public void printCheck() {
+        System.out.println("\nYour order is:\n");
 
         Field[] fields = Order.class.getDeclaredFields();
         Arrays.stream(fields).forEach(f -> {
             Annotation[] annotations = f.getDeclaredAnnotations();
-            Arrays.stream(annotations).filter(isMakeWithout).forEach(annotation -> {
-                MakeWithout makeWithout = (MakeWithout) annotation;
 
-                orderedDishes.stream().forEach(dish -> {
-                    if(makeWithout.withoutMeat() & makeWithout.withoutOnions()) {
-                        dish.countWithoutProduct(0.8);
-                    }else if(makeWithout.withoutMeat()){
-                        dish.countWithoutProduct(0.83);
-                    }else{
-                        dish.countWithoutProduct( 0.97);
-                    }
-                    totalprice += dish.getPrice();
-                });
+            Arrays.stream(annotations).forEach(annotation -> {
+                if(annotation.annotationType().equals(MakeWithout.class)) {
+                    makeWithout = (MakeWithout) annotation;
+
+                    check.accept(withoutBoth, 0.8);
+                    check.accept(withoutMeat, 0.83);
+                    check.accept(withoutOnion, 0.97);
+                    check.accept(withBoth, 1.0);
+
+                    System.out.println("Total price is: " + totalprice);
+                }
             });
         });
 
-//        Field[] fields = Order.class.getDeclaredFields();
-//        Arrays.stream(fields).forEach(f -> {
-//            Annotation[] annotations = f.getDeclaredAnnotations();
-//            Arrays.stream(annotations).forEach(annotation -> {
-//                if(annotation.annotationType().equals(MakeWithout.class)){
-//                MakeWithout makeWithout = (MakeWithout) annotation;
-//
-//                orderedDishes.stream().forEach(dish -> {
-//                    if(makeWithout.withoutMeat() & makeWithout.withoutOnions()) {
-//                        dish.countWithoutProduct(0.8);
-//                    }else if(makeWithout.withoutMeat()){
-//                        dish.countWithoutProduct(0.83);
-//                    }else{
-//                        dish.countWithoutProduct( 0.97);
-//                    }
-//                    totalprice += dish.getPrice();
-//                });
-//            });
-//        });
-
-
-        for (Field field: fields) {
-            Annotation[] annotations = field.getDeclaredAnnotations();
-            for (Annotation annotation: annotations) {
-                if(annotation.annotationType().equals(MakeWithout.class)){
-                    MakeWithout makeWithout = (MakeWithout) annotation;
-
-                    for (Dishes dish: orderedDishes) {
-                        if(makeWithout.withoutMeat() & makeWithout.withoutOnions()) {
-                            System.out.println(dish.getName() + "\t\t" + Math.round(dish.getPrice() * 0.8));
-                        }else if(makeWithout.withoutMeat()){
-                            System.out.println(dish.getName() + "\t\t" + Math.round(dish.getPrice() * 0.83));
-                        }else{
-                            System.out.println(dish.getName() + "\t\t" + Math.round(dish.getPrice() * 0.97));
-                        }
-                        price += dish.getPrice();
-                    }
-                }
-            }
-        }
-
-
-        System.out.println("\nYour order is:\n");
-        for (Dishes dish: orderedDishes) {
-            System.out.println(dish.getName() + "\t\t" + dish.getPrice());
-            price += dish.getPrice();
-        }
-        System.out.println("Total price: " + price);
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMM yyyy, HH:mm");
         System.out.println("\nOrder time: " + getDateAndTime().format(formatter));
     }
-
-
 }
 
 
