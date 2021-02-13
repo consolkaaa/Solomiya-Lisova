@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 public class Order {
 
-    @MakeWithout(withoutMeat = false, withoutOnions = false)
+    @MakeWithout(withoutMeat = true, withoutOnions = false)
     public List<Dishes> orderedDishes = new ArrayList<>();
     private LocalDateTime dateAndTime=  LocalDateTime.now();
 
@@ -36,13 +36,13 @@ public class Order {
     private BiPredicate<Dishes, MakeWithout> withoutOnion = (dish,without) -> !without.withoutMeat() & without.withoutOnions();
     private BiPredicate<Dishes, MakeWithout> withBoth = (dish,without) -> !without.withoutMeat() & !without.withoutOnions();
 
-    private BiConsumer<BiPredicate, Double> check = (predicate, n) -> orderedDishes.stream().filter(dish -> predicate.test(dish, makeWithout)).
-            forEach(dish -> {
+    private BiConsumer<BiPredicate, Double> check = (predicate, n) -> orderedDishes.stream()
+            .filter(dish -> predicate.test(dish, makeWithout))
+            .forEach(dish -> {
                 double lowedPrice = Math.round(dish.getPrice() * n);
                 System.out.println(dish.getName() + "\t\t" + lowedPrice);
                 totalprice += Math.round(lowedPrice);
             });
-
 
     public void printCheck() {
         System.out.println("\nYour order is:\n");
@@ -63,14 +63,14 @@ public class Order {
             check.accept(withoutMeat, 0.83);
             check.accept(withoutOnion, 0.97);
             check.accept(withBoth, 1.0);
-
-            System.out.println("Total price is: " + totalprice);
         } else {
             orderedDishes.stream().forEach(dish -> {
                 System.out.println(dish.getName() + "\t\t" + dish.getPrice());
                 totalprice +=  dish.getPrice();
             });
         }
+
+        System.out.println("\nTotal price is: " + totalprice);
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMM yyyy, HH:mm");
         System.out.println("\nOrder time: " + getDateAndTime().format(formatter));

@@ -11,7 +11,6 @@ import java.util.List;
 
 public class Visitor extends Person {
 
-    @MakeWithout(withoutMeat = false, withoutOnions = false)
     List<Dishes> orderList = new ArrayList<>();
 
     public Visitor(String name, int age) {
@@ -38,17 +37,11 @@ public class Visitor extends Person {
         Menu.printVegeterian();
     }
 
-   //@MakeWithout(withoutMeat = true, withoutOnions = false)
-    public void makeOrder(@MakeWithout(withoutMeat = true, withoutOnions = false) List<Dishes> orderList){
-
+    public void makeOrder(List<Dishes> orderList){
         Order order = new Order(orderList);
 
         order.printCheck();
-
-
-
     }
-
 }
 
 
