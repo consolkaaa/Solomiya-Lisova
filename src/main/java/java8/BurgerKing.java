@@ -39,6 +39,7 @@ public class BurgerKing {
         visitor.seeSmallestPricesInEachCategory();
         drawSeparator();
 
+        System.out.println("\nANNOTATIONS");
         List<Dishes> order1 = new ArrayList<>();
         order1.add(Menu.burger1);
         order1.add(Menu.salad1);
