@@ -15,11 +15,11 @@ import java.util.stream.Collectors;
 
 public class Order {
 
-    @MakeWithout(withoutMeat = false, withoutOnions = true)
-    private List<Dishes> orderedDishes = new ArrayList<>();
+    @MakeWithout(withoutMeat = false, withoutOnions = false)
+    public List<Dishes> orderedDishes = new ArrayList<>();
     private LocalDateTime dateAndTime=  LocalDateTime.now();
 
-   private MakeWithout makeWithout;
+    private MakeWithout makeWithout;
 
     public Order(List<Dishes> orderedDishes){
         this.orderedDishes = orderedDishes;
@@ -43,6 +43,7 @@ public class Order {
                 totalprice += Math.round(lowedPrice);
             });
 
+
     public void printCheck() {
         System.out.println("\nYour order is:\n");
 
@@ -53,17 +54,23 @@ public class Order {
             Arrays.stream(annotations).forEach(annotation -> {
                 if(annotation.annotationType().equals(MakeWithout.class)) {
                     makeWithout = (MakeWithout) annotation;
-
-                    check.accept(withoutBoth, 0.8);
-                    check.accept(withoutMeat, 0.83);
-                    check.accept(withoutOnion, 0.97);
-                    check.accept(withBoth, 1.0);
-
-                    System.out.println("Total price is: " + totalprice);
                 }
             });
         });
 
+        if (makeWithout != null) {
+            check.accept(withoutBoth, 0.8);
+            check.accept(withoutMeat, 0.83);
+            check.accept(withoutOnion, 0.97);
+            check.accept(withBoth, 1.0);
+
+            System.out.println("Total price is: " + totalprice);
+        } else {
+            orderedDishes.stream().forEach(dish -> {
+                System.out.println(dish.getName() + "\t\t" + dish.getPrice());
+                totalprice +=  dish.getPrice();
+            });
+        }
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMM yyyy, HH:mm");
         System.out.println("\nOrder time: " + getDateAndTime().format(formatter));
