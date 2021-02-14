@@ -16,17 +16,28 @@ public class Menu{
     public static List<Dishes> dishesList = new ArrayList<Dishes>();
 
     public Menu(){
-        salad1 = new Dishes("salad1",81, 300, "Salads", true);
-        salad2 = new Dishes("salad2", 75, 420, "Salads", false);
-        salad3 = new Dishes("salad3",60, 370, "Salads", false);
+        salad1  = new DishBuilder().name("salad1").price(81).calories(300).isVegeterian(true).build();
+        salad2  = new DishBuilder().name("salad2").price(81).calories(300).isVegeterian(true).build();
+        salad3  = new DishBuilder().name("salad3").price(81).calories(300).isVegeterian(true).build();
 
-        burger1 = new Dishes("burger1",80, 500, "Burgers", false);
-        burger2 = new Dishes("burger2",70, 600, "Burgers", false);
-        burger3 = new Dishes("burger3",64, 560, "Burgers", true);
+        burger1  = new DishBuilder().name("burger1").price(81).calories(300).isVegeterian(true).build();
+        burger2  = new DishBuilder().name("burger2").price(81).calories(300).isVegeterian(true).build();
+        burger3  = new DishBuilder().name("burger3").price(81).calories(300).isVegeterian(true).build();
 
-        drink1 = new Dishes("drink1",37, 120, "Drinks", true);
-        drink2 = new Dishes("drink2",29, 130, "Drinks", false);
-        drink3 = new Dishes("drink3",34, 70, "Drinks", true);
+        drink1  = new DishBuilder().name("drink1").price(81).calories(300).isVegeterian(true).build();
+        drink2  = new DishBuilder().name("drink2").price(81).calories(300).isVegeterian(true).build();
+        drink3  = new DishBuilder().name("drink3").price(81).calories(300).isVegeterian(true).build();
+//        salad1 = new Dishes("salad1",81, 300, "Salads", true);
+//        salad2 = new Dishes("salad2", 75, 420, "Salads", false);
+//        salad3 = new Dishes("salad3",60, 370, "Salads", false);
+//
+//        burger1 = new Dishes("burger1",80, 500, "Burgers", false);
+//        burger2 = new Dishes("burger2",70, 600, "Burgers", false);
+//        burger3 = new Dishes("burger3",64, 560, "Burgers", true);
+//
+//        drink1 = new Dishes("drink1",37, 120, "Drinks", true);
+//        drink2 = new Dishes("drink2",29, 130, "Drinks", false);
+//        drink3 = new Dishes("drink3",34, 70, "Drinks", true);
 
         dishesList = Arrays.asList(salad1, salad2, salad3, burger1, burger2, burger3, drink1, drink2, drink3);
     }

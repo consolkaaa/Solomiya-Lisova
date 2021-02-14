@@ -24,11 +24,11 @@ public class Dishes {
         return category;
     }
 
-    public Dishes(String name, int price, int calories, String category, Boolean isVegeterian){
-        this.name = name;
-        this.calories = calories;
-        this.price = price;
-        this.category = category;
-        this.isVegeterian = isVegeterian;
+     Dishes(DishBuilder dishBuilder){
+        this.name = dishBuilder.getName();
+        this.calories = dishBuilder.getCalories();
+        this.price = dishBuilder.getPrice();
+        this.category = dishBuilder.getCategory();
+        this.isVegeterian = dishBuilder.getVegeterian();
     }
 }
