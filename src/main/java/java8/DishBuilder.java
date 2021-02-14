@@ -5,7 +5,7 @@ public class DishBuilder {
     private int price;
     private int calories;
     private String category;
-    private Boolean isVegeterian;
+    private Boolean isVegeterian = false;
 
     public DishBuilder name(String name){
         this.name = name;

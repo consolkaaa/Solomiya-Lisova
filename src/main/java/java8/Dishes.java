@@ -24,6 +24,10 @@ public class Dishes {
         return category;
     }
 
+    public int getCalories() {
+        return calories;
+    }
+
      Dishes(DishBuilder dishBuilder){
         this.name = dishBuilder.getName();
         this.calories = dishBuilder.getCalories();
