@@ -1,17 +1,15 @@
-package java8;
+package java8.Annotations;
 
 import java8.Dishes;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.*;
-import java.util.stream.Collectors;
 
 public class Order {
 
