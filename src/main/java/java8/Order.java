@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 public class Order {
 
-    @MakeWithout(withoutMeat = true, withoutOnions = false)
+    //@MakeWithout(withoutMeat = true, withoutOnions = false)
     public List<Dishes> orderedDishes = new ArrayList<>();
     private LocalDateTime dateAndTime=  LocalDateTime.now();
 

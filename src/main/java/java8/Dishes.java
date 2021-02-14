@@ -1,7 +1,6 @@
 package java8;
 
 public class Dishes {
-
     private String name;
     private int price;
     private int calories;
@@ -26,6 +25,14 @@ public class Dishes {
 
     public int getCalories() {
         return calories;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 
      Dishes(DishBuilder dishBuilder){

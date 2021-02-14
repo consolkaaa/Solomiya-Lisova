@@ -16,17 +16,17 @@ public class Menu{
     public static List<Dishes> dishesList;
 
     public Menu() {
-        salad1 = new DishBuilder().name("salad1").price(81).calories(300).category("Salads").build();
-        salad2 = new DishBuilder().name("salad2").price(81).calories(300).category("Salads").isVegeterian(true).build();
-        salad3 = new DishBuilder().name("salad3").price(81).calories(300).category("Salads").build();
+        salad1 = new DishBuilder().name("salad1").price(51).calories(450).category("Salads").build();
+        salad2 = new DishBuilder().name("salad2").price(65).calories(400).category("Salads").isVegeterian(true).build();
+        salad3 = new DishBuilder().name("salad3").price(71).calories(550).category("Salads").build();
 
-        burger1 = new DishBuilder().name("burger1").price(81).calories(300).category("Burgers").build();
-        burger2 = new DishBuilder().name("burger2").price(81).calories(300).category("Burgers").build();
-        burger3 = new DishBuilder().name("burger3").price(81).calories(300).category("Burgers").isVegeterian(true).build();
+        burger1 = new DishBuilder().name("burger1").price(76).calories(700).category("Burgers").build();
+        burger2 = new DishBuilder().name("burger2").price(81).calories(500).category("Burgers").build();
+        burger3 = new DishBuilder().name("burger3").price(55).calories(600).category("Burgers").isVegeterian(true).build();
 
-        drink1 = new DishBuilder().name("drink1").price(81).calories(300).category("Drinks").build();
-        drink2 = new DishBuilder().name("drink2").price(81).calories(300).category("Drinks").isVegeterian(true).build();
-        drink3 = new DishBuilder().name("drink3").price(81).calories(300).category("Drinks").build();
+        drink1 = new DishBuilder().name("drink1").price(35).calories(120).category("Drinks").build();
+        drink2 = new DishBuilder().name("drink2").price(30).calories(200).category("Drinks").isVegeterian(true).build();
+        drink3 = new DishBuilder().name("drink3").price(43).calories(100).category("Drinks").build();
 
         dishesList = Arrays.asList(salad1, salad2, salad3, burger1, burger2, burger3, drink1, drink2, drink3);
     }
