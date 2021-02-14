@@ -31,7 +31,4 @@ public class Dishes {
         this.category = category;
         this.isVegeterian = isVegeterian;
     }
-
-
-
 }

@@ -2,10 +2,16 @@ package java8;
 
 import OOP.inheritance.Person;
 
+import java.awt.*;
+import java.lang.reflect.Field;
+import java.text.Annotation;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Visitor extends Person {
+
+    List<Dishes> orderList = new ArrayList<>();
 
     public Visitor(String name, int age) {
         super(name, age);
@@ -31,13 +37,11 @@ public class Visitor extends Person {
         Menu.printVegeterian();
     }
 
-    public void makeOrder(){
-        Order order = new Order();
+    public void makeOrder(List<Dishes> orderList){
+        Order order = new Order(orderList);
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMM yyyy, HH:mm");
-        System.out.println("\nOrder time is: " + order.getDateAndTime().format(formatter));
+        order.printCheck();
     }
-
 }
 
 

@@ -9,9 +9,9 @@ import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class Menu{
-    private static Dishes salad1, salad2, salad3;
-    private static Dishes burger1, burger2, burger3;
-    private static Dishes drink1, drink2, drink3;
+    public static Dishes salad1, salad2, salad3;
+    public static Dishes burger1, burger2, burger3;
+    public static Dishes drink1, drink2, drink3;
 
     public static List<Dishes> dishesList = new ArrayList<Dishes>();
 
