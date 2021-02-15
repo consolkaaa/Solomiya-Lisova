@@ -1,7 +1,6 @@
 package java8;
 
 public class Dishes {
-
     private String name;
     private int price;
     private int calories;
@@ -24,11 +23,23 @@ public class Dishes {
         return category;
     }
 
-    public Dishes(String name, int price, int calories, String category, Boolean isVegeterian){
+    public int getCalories() {
+        return calories;
+    }
+
+    public void setName(String name) {
         this.name = name;
-        this.calories = calories;
+    }
+
+    public void setPrice(int price) {
         this.price = price;
-        this.category = category;
-        this.isVegeterian = isVegeterian;
+    }
+
+     Dishes(DishBuilder dishBuilder){
+        this.name = dishBuilder.getName();
+        this.calories = dishBuilder.getCalories();
+        this.price = dishBuilder.getPrice();
+        this.category = dishBuilder.getCategory();
+        this.isVegeterian = dishBuilder.getVegeterian();
     }
 }

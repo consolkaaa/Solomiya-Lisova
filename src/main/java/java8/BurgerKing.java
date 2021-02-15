@@ -1,6 +1,5 @@
 package java8;
 
-import OOP.inheritance.abstraction.Cashier;
 import java8.Dishes;
 
 import java.util.ArrayList;
@@ -11,7 +10,6 @@ public class BurgerKing {
 
     public static void main(String[] args) {
         Visitor visitor = new Visitor("Solomiya", 20);
-        Cashier cashier = new Cashier("Vasyl", 29);
         Menu menu = new Menu();
 
         visitor.seeMenu();
@@ -39,13 +37,24 @@ public class BurgerKing {
         visitor.seeSmallestPricesInEachCategory();
         drawSeparator();
 
-        System.out.println("\nANNOTATIONS");
-        List<Dishes> order1 = new ArrayList<>();
-        order1.add(Menu.burger1);
-        order1.add(Menu.salad1);
+        System.out.println("\nDECORATOR");
+
+        DishDecorator decorator1 = new DishDecorator(Menu.salad1);
+        Menu.salad1 = decorator1.addExtraAvocado();
+
+        DishDecorator decorator2 = new DishDecorator(Menu.burger1);
+        Menu.burger1 = decorator2.addExtraCheese();
+
+        DishDecorator decorator3 = new DishDecorator(Menu.drink3);
+        Menu.drink3 = decorator3.addExtraIce();
+
+        List<Dishes> order1 = Arrays.asList(
+                Menu.salad1,
+                Menu.burger1,
+                Menu.drink3);
 
         visitor.makeOrder(order1);
-
+        drawSeparator();
     }
 
     private static void drawSeparator(){
