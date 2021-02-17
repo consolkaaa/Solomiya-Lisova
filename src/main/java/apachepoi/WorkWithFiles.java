@@ -1,10 +1,9 @@
 package apachepoi;
 
 import com.github.javafaker.Faker;
-import com.opencsv.CSVParser;
-import com.opencsv.CSVReader;
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVRecord;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -39,35 +38,50 @@ public class WorkWithFiles {
         csvData = initialize(csvData);
         convertedToCsv = dataToCsvType(csvData);
 
-        System.out.println(convertedToCsv);
-
         Path csvPath = Paths.get(System.getProperty("user.home"), "IdeaProjects",
                 "Solomiya-Lisova", "src", "main", "resources", "file.csv");
 
         Path xlsxPath = Paths.get(System.getProperty("user.home"), "IdeaProjects",
                 "Solomiya-Lisova", "src", "main", "resources", "file.xlsx");
 
+        File csv = new File(String.valueOf(csvPath));
         File xlsx = new File(String.valueOf(xlsxPath));
 
         BufferedWriter bufferedWriter;
-        FileInputStream fis;
+        BufferedReader bufferedReader;
+        FileOutputStream fos;
+        String line;
+        String[] values = new String[10];
 
         try {
-            bufferedWriter = new BufferedWriter(new FileWriter(String.valueOf(csvPath)));
+            bufferedWriter = new BufferedWriter(new FileWriter(csv));
             bufferedWriter.write(convertedToCsv);
             bufferedWriter.close();
 
-//            xlsx.createNewFile();
-//            fis = new FileInputStream(xlsx);
-//            Workbook workbook = new XSSFWorkbook(fis);
+            bufferedReader = new BufferedReader(new FileReader(csv));
+            while((line = bufferedReader.readLine()) != null){
+                values = line.split(",");
+            }
 
+            xlsx.createNewFile();
+            Workbook workbook = new XSSFWorkbook();
+            Sheet sheet = workbook.createSheet("Names");
+
+            int i = 0;
+            while(i < values.length){
+                Row row = sheet.createRow(i);
+                Cell cell = row.createCell(0);
+                cell.setCellValue(values[i]);
+                i++;
+            }
+
+            fos = new FileOutputStream(xlsx);
+            workbook.write(fos);
+            fos.close();
+            System.out.println(xlsx + " written successfully");
 
         }catch (IOException ex){
             ex.printStackTrace();
         }
-
-
-
     }
-
 }
