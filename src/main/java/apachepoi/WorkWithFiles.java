@@ -21,6 +21,8 @@ import java.util.stream.Stream;
 public class WorkWithFiles {
     static List<String> csvData = new ArrayList<>();
     static String convertedToCsv = "";
+    static BufferedWriter bufferedWriter;
+    static BufferedReader bufferedReader;
 
     public static List<String> initialize(List<String> dataList){
         Faker faker = new Faker();
@@ -34,9 +36,44 @@ public class WorkWithFiles {
         return (String) dataList.stream().collect(Collectors.joining(","));
     }
 
+    public static void writeToCsv(String data, File file) throws IOException {
+        bufferedWriter = new BufferedWriter(new FileWriter(file));
+        bufferedWriter.write(data);
+        bufferedWriter.close();
+    }
+
+    public static List<String> readFromCsv(File file) throws IOException {
+        String line;
+        List<String> valuesList = new ArrayList<>();
+        bufferedReader = new BufferedReader(new FileReader(file));
+        while((line = bufferedReader.readLine()) != null){
+            valuesList = Arrays.asList(line.split(","));
+        }
+        return valuesList;
+    }
+
+    public static void writeCsvToXlsx(File csv, File xlsx) throws IOException {
+        List <String> valuesList= new ArrayList<>();
+        valuesList = readFromCsv(csv);
+
+        Workbook workbook = new XSSFWorkbook();
+        Sheet sheet = workbook.createSheet("Names");
+
+        int i = 0;
+        while(i < valuesList.size()){
+            Row row = sheet.createRow(i);
+            Cell cell = row.createCell(0);
+            cell.setCellValue(valuesList.get(i));
+            i++;
+        }
+
+        FileOutputStream fos = new FileOutputStream(xlsx);
+        workbook.write(fos);
+        fos.close();
+        System.out.println(xlsx + " written successfully");
+    }
+
     public static void main(String[] args) {
-        csvData = initialize(csvData);
-        convertedToCsv = dataToCsvType(csvData);
 
         Path csvPath = Paths.get(System.getProperty("user.home"), "IdeaProjects",
                 "Solomiya-Lisova", "src", "main", "resources", "file.csv");
@@ -47,38 +84,12 @@ public class WorkWithFiles {
         File csv = new File(String.valueOf(csvPath));
         File xlsx = new File(String.valueOf(xlsxPath));
 
-        BufferedWriter bufferedWriter;
-        BufferedReader bufferedReader;
-        FileOutputStream fos;
-        String line;
-        String[] values = new String[10];
+        csvData = initialize(csvData);            //creating list of random names
+        convertedToCsv = dataToCsvType(csvData);  //converting list to csv string type
 
         try {
-            bufferedWriter = new BufferedWriter(new FileWriter(csv));
-            bufferedWriter.write(convertedToCsv);
-            bufferedWriter.close();
-
-            bufferedReader = new BufferedReader(new FileReader(csv));
-            while((line = bufferedReader.readLine()) != null){
-                values = line.split(",");
-            }
-
-            xlsx.createNewFile();
-            Workbook workbook = new XSSFWorkbook();
-            Sheet sheet = workbook.createSheet("Names");
-
-            int i = 0;
-            while(i < values.length){
-                Row row = sheet.createRow(i);
-                Cell cell = row.createCell(0);
-                cell.setCellValue(values[i]);
-                i++;
-            }
-
-            fos = new FileOutputStream(xlsx);
-            workbook.write(fos);
-            fos.close();
-            System.out.println(xlsx + " written successfully");
+            writeToCsv(convertedToCsv, csv);      // writing data to csv
+            writeCsvToXlsx(csv, xlsx);            // writing from csv to xlsx
 
         }catch (IOException ex){
             ex.printStackTrace();
