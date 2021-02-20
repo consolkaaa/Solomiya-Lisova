@@ -3,43 +3,41 @@ package exceptions.task_3;
 public class Output_1 {
 
     public static void main(String[] args) {
-
-        System.err.println("\n------Output1------\n");
-
         System.err.println("#1.in");
         try {
             f();
-            g();
-            h();
-        }catch (Exception e){
+        } catch (Error e) {
             System.err.println("#1.CATCH");
         }
-        finally {
-            System.err.println("#1.out");
-        }
+        System.err.println("#1.out");
     }
 
-    public static void f(){
+    public static void f() {
+        System.err.println(".   #2.in");
         try {
-            System.err.println(".   #2.in");
-        }catch(Exception e1){
-            System.err.println(".   #2.CATCH");
-            System.err.println(".   #2.out");
+            g();
+        } catch (Error e) {
+            throw e;
         }
+        System.err.println(".   #2.out");
     }
 
     public static void g() {
+        System.err.println(".   .   #3.in");
         try {
-            System.err.println(".   .   #3.in");
-        }catch(Exception e2){
-            System.err.println(".   .   #3.CATCH");
-            System.err.println(".   .   #3.out");
+            h();
+        } catch (Error e) {
+            throw e;
         }
+        System.err.println(".   .   #3.out");
     }
 
-    public static void h() throws Exception{
+    public static void h() {
         System.err.println(".   .   .   #4.in");
         System.err.println(".   .   .   #4.THROW");
-        throw new Exception();
+        if (true) {
+            throw new Error();
+        }
+        System.err.println(".   .   .   #4.out");
     }
 }
