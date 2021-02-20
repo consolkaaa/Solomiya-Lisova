@@ -24,7 +24,7 @@ public class Output_4 {
         System.err.println(".   .   #3.out");
     }
 
-    public static void h() throws Error {
+    public static void h() {
         System.err.println(".   .   .   #4.in");
         System.err.println(".   .   .   #4.THROW");
         if (true) {
