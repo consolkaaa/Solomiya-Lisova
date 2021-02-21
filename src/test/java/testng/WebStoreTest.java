@@ -2,6 +2,7 @@ package testng;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,9 +14,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.assertEquals;
 
 public class WebStoreTest {
     WebDriver driver;
+
+    String uniqueDressName = "Chiffon";
+    String price = "$16.40";
 
     @BeforeClass
     public void setup(){
@@ -31,37 +36,65 @@ public class WebStoreTest {
 
     @Test
     public void titleTest(){
-       assertTrue(driver.getTitle().equals("My Store"));
+        assertEquals(driver.getTitle(), "My Store");
     }
 
     @Test(dependsOnMethods = "titleTest")
     public void checkPrice(){
         WebElement dress;
 
-        List<WebElement> elementList = driver.findElements(By.xpath("//li[contains(@class, 'ajax_block_product')]"));
-        dress = elementList.stream().filter(element -> element.getText().contains("Chiffon")).findAny().orElseThrow();
+        searchFor("dress");
 
-        assertTrue(dress.getText().contains("$16.40"));
+        List<WebElement> elementList = driver.findElements(By.xpath("//li[contains(@class, 'ajax_block_product')]"));
+
+        try {
+            dress = elementList.stream()
+                    .filter(element -> element.getText().contains(uniqueDressName))
+                    .findAny()
+                    .orElseThrow();
+            assertTrue(dress.getText().contains(price));
+        }catch (Exception e){
+            assert false;
+        }
+    }
+
+    private void searchFor(String word){
+        WebElement searchInput = driver.findElement(By.id("search_query_top"));
+        searchInput.sendKeys(word);
+        searchInput.sendKeys(Keys.ENTER);
     }
 
     @Test(dependsOnMethods = {"checkPrice","titleTest"})
     public void addToCartTest(){
         WebElement dressBox, addToCart, checkout, dress;
 
-        dressBox = driver.findElement(By.xpath("//a[contains(text(), 'Chiffon')]/ancestor::div[@class = 'right-block']"));
+        try {
+            addItemToCart(uniqueDressName);
+
+            List<WebElement> elementList = driver.findElements(By.xpath("//tr[contains(@class,'cart_item')]"));
+            dress = elementList.stream()
+                    .filter(element -> element.getText().contains(uniqueDressName))
+                    .findAny()
+                    .orElseThrow();
+
+            assert dress != null & driver.getTitle().equals("Order - My Store");
+
+        }catch (Exception e){
+            assert false;
+        }
+    }
+
+    private void addItemToCart(String uniqueDressName) throws Exception{
+        WebElement dressBox, addToCart, checkout;
+        String wayToDressBox = "//a[contains(text(),\'" + uniqueDressName + "\')]/ancestor::div[@class = 'right-block']";
+        dressBox = driver.findElement(By.xpath(wayToDressBox));
         dressBox.click();
 
-        addToCart = driver.findElement(By.xpath("//a[@title = 'Add to cart' and @data-id-product = '7']"));
+        addToCart = driver.findElement(By.xpath(wayToDressBox + "/div[@class = 'button-container']/a[@title = 'Add to cart']"));
         addToCart.click();
 
         WebDriverWait wait = new WebDriverWait(driver, 10);
         checkout = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@title='Proceed to checkout']")));
         checkout.click();
-
-        List<WebElement> elementList = driver.findElements(By.xpath("//tr[contains(@class,'cart_item')]"));
-        dress = elementList.stream().filter(element -> element.getText().contains("Chiffon")).findAny().orElseThrow();
-
-        assert dress != null;
     }
-
 }
