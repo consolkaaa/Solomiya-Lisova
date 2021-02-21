@@ -96,5 +96,6 @@ public class WebStoreTest {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         checkout = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@title='Proceed to checkout']")));
         checkout.click();
+
     }
 }
