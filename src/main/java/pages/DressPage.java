@@ -16,6 +16,10 @@ public class DressPage {
         PageFactory.initElements(driver, this);
     }
 
+    public void open(){
+        driver.get("http://automationpractice.com/index.php?id_category=8&controller=category");
+    }
+
     @FindBy(xpath = "//li[contains(@class, 'ajax_block_product')]")
     List<WebElement> elementList;
 
