@@ -35,32 +35,32 @@ public class PageObjectTest {
         assertTrue(homePage.checkTitle());
     }
 
-    @Test(dependsOnMethods = "titleTest")
-    public void priceTest(){
+//    @Test(dependsOnMethods = "titleTest")
+//    public void checkDressPriceTest(){
+//
+//        DressPage dressPage = new DressPage(driver);
+//        dressPage.open();
+//
+//        try {
+//            assertTrue(dressPage.checkPrice("Chiffon", "$16.40"));
+//        }catch (Exception e){
+//            assert false;
+//        }
+//    }
 
-        DressPage dressPage = new DressPage(driver);
-        dressPage.open();
-
-        try {
-            assertTrue(dressPage.checkPrice("Chiffon", "$16.40"));
-        }catch (Exception e){
-            assert false;
-        }
-    }
-
-    @Test(dependsOnMethods = {"priceTest", "titleTest"})
-    public void addToCartTest(){
-        CartPage cart = new CartPage(driver);
-
-        try {
-            cart.addItemToCart("7");
-            cart.proceedToCheckout();
-            assertTrue(cart.checkIfAddedToCart("Chiffon"));
-
-        }catch (Exception e){
-            assert false;
-        }
-    }
+//    @Test(dependsOnMethods = {"priceTest", "titleTest"})
+//    public void addToCartTest(){
+//        CartPage cart = new CartPage(driver);
+//
+//        try {
+//            cart.addItemToCart("7");
+//            cart.proceedToCheckout();
+//            assertTrue(cart.checkIfAddedToCart("Chiffon"));
+//
+//        }catch (Exception e){
+//            assert false;
+//        }
+//    }
 }
 
 
