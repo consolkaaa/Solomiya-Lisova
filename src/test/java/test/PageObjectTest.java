@@ -32,7 +32,7 @@ public class PageObjectTest {
     public void titleTest(){
         homePage = new HomePage(driver);
         homePage.open();
-        assertEquals(driver.getTitle(), "My Store");
+        assertTrue(homePage.checkTitle());
     }
 
     @Test(dependsOnMethods = "titleTest")

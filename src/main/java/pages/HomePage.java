@@ -10,16 +10,23 @@ import org.openqa.selenium.support.PageFactory;
 public class HomePage {
     private WebDriver driver;
 
-    @FindBy (id = "search_query_top")
-    private WebElement searchInput;
-
     public HomePage(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
+    @FindBy (id = "search_query_top")
+    private WebElement searchInput;
+
     public void open(){
         driver.get("http://automationpractice.com/index.php");
+    }
+
+    public boolean checkTitle(){
+        if (driver.getTitle().equals("My Store")){
+            return true;
+        }
+        return false;
     }
 
     public void searchFor(String word){
