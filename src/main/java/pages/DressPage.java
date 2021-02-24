@@ -23,15 +23,22 @@ public class DressPage {
     @FindBy(xpath = "//li[contains(@class, 'ajax_block_product')]")
     List<WebElement> elementList;
 
-    public WebElement findDress(String uniqueDressName) throws Exception{
-        return elementList.stream()
-                .filter(element -> element.getText().contains(uniqueDressName))
-                .findAny()
-                .orElseThrow();
-    }
+//    public WebElement findDressWithPrice(String uniqueDressName, String price) throws Exception{
+//        return elementList.stream()
+//                .filter(element -> element.getText().contains(uniqueDressName) & element.getText().contains(price))
+//                .findAny()
+//                .orElseThrow();
+//    }
 
     public boolean checkPrice(String dressToCheck, String price) throws Exception{
-        WebElement dress = findDress(dressToCheck);
-        return dress.getText().contains(price);
+        try {
+            elementList.stream()
+                    .filter(element -> element.getText().contains(dressToCheck) & element.getText().contains(price))
+                    .findAny()
+                    .orElseThrow();
+            return true;
+        }catch (Exception e){
+            return false;
+        }
     }
 }

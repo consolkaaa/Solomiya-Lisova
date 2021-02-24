@@ -19,23 +19,23 @@ public class CartPage {
     }
 
     @FindBy(xpath = "//a[@title='Proceed to checkout']")
-    WebElement checkoutButton;
+    private WebElement checkoutButton;
 
     @FindBy(xpath = "//tr[contains(@class,'cart_item')]")
-    List<WebElement> elementsInTheCart;
+    private List<WebElement> elementsInTheCart;
 
-    private String findWayToDressBox(String uniqueDressName) {
-        return "//a[contains(text(),\'" + uniqueDressName + "\')]/ancestor::div[@class = 'right-block']";
+    private String findWayToDressBox(String id) {
+        return "//a[@data-id-product = \'" + id + "\']/ancestor::div[@class = 'right-block']";
     }
 
-    private String findWayToDress(String uniqueDressName) {
-        return findWayToDressBox(uniqueDressName) + "/div[@class = 'button-container']/a[@title = 'Add to cart']";
+    private String findWayToDress(String id) {
+        return "//a[@data-id-product = \'" + id + "\' and @title = 'Add to cart']";
     }
 
-    public void addItemToCart(String uniqueDressName) throws Exception{
+    public void addItemToCart(String id) throws Exception{
         //Driver clicks on the dressBox in order for the button to be visible
-        driver.findElement(By.xpath(findWayToDressBox(uniqueDressName))).click();
-        driver.findElement(By.xpath(findWayToDress(uniqueDressName))).click();
+        driver.findElement(By.xpath(findWayToDressBox(id))).click();
+        driver.findElement(By.xpath(findWayToDress(id))).click();
     }
 
     public void proceedToCheckout(){
@@ -44,15 +44,16 @@ public class CartPage {
         wait.until(ExpectedConditions.elementToBeClickable(checkoutButton)).click();
     }
 
-    private WebElement findInTheCart(String uniqueDressName) throws Exception{
+    private WebElement findInTheCart(String dressName) throws Exception{
         return elementsInTheCart.stream()
-                .filter(element -> element.getText().contains(uniqueDressName))
+                .filter(element -> element.getText().contains(dressName))
                 .findAny()
                 .orElseThrow();
     }
 
-    public boolean checkIfAddedToCart(String uniqueDressName) throws Exception{
-        WebElement dress = findInTheCart(uniqueDressName);
+    public boolean checkIfAddedToCart(String dressName) throws Exception{
+        WebElement dress = findInTheCart(dressName);
         return true;
     }
+
 }

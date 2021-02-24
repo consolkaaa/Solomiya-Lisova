@@ -53,9 +53,10 @@ public class PageObjectTest {
         CartPage cart = new CartPage(driver);
 
         try {
-            cart.addItemToCart("Chiffon");
+            cart.addItemToCart("7");
             cart.proceedToCheckout();
             assertTrue(cart.checkIfAddedToCart("Chiffon"));
+
         }catch (Exception e){
             assert false;
         }
