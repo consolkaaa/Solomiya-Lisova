@@ -1,4 +1,4 @@
-package test;
+package pageObjectTest;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -6,9 +6,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pages.CartPage;
-import pages.DressPage;
-import pages.HomePage;
+import pageObjectHometask.CartPage;
+import pageObjectHometask.DressPage;
+import pageObjectHometask.HomePage;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
