@@ -6,8 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pageObjectHometask.CartPage;
-import pageObjectHometask.HomePage;
+import pageObjectHometask.pages.CartPage;
 
 import static org.testng.Assert.assertTrue;
 

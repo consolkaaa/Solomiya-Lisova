@@ -3,7 +3,8 @@
 <suite name="Test suite">
     <test name="WebStore Test">
         <classes>
-            <class name="pageObjectTest.PageObjectTest"/>
+        <class name="pageObjectTest.PageObjectTest"/>
+            <!--class name="pageObjectTest.LogInTest"/-->
         </classes>
     </test>
 </suite>

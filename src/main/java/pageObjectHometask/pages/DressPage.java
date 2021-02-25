@@ -1,9 +1,10 @@
-package pageObjectHometask;
+package pageObjectHometask.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import pageObjectHometask.data.PageData;
 
 import java.util.List;
 
@@ -13,10 +14,11 @@ public class DressPage {
     public DressPage(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
+        PageData pageData = new PageData();
     }
 
     public void open(){
-        driver.get("http://automationpractice.com/index.php?id_category=8&controller=category");
+        driver.get(PageData.dressPageUrl);
     }
 
     @FindBy(xpath = "//li[contains(@class, 'ajax_block_product')]")
