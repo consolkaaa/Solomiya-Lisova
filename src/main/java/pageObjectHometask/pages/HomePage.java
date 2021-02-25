@@ -23,11 +23,8 @@ public class HomePage {
         driver.get(PageData.homePageUrl);
     }
 
-    public boolean checkTitle(){
-        if (driver.getTitle().equals("My Store")){
-            return true;
-        }
-        return false;
+    public String getTitle(){
+        return driver.getTitle();
     }
 
     public void searchFor(String word){

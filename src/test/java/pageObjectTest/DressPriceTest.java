@@ -25,7 +25,7 @@ public class DressPriceTest {
         driver.quit();
     }
 
-    //@Test(dependsOnMethods = "titleTest")
+    //@Test(dependsOnGroups = "PageObjectTest.titleTest")
     @Test
     public void checkDressPriceTest(){
 

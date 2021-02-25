@@ -3,9 +3,7 @@ package pageObjectTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import pageObjectHometask.data.PageData;
 import pageObjectHometask.pages.HomePage;
 
@@ -14,7 +12,7 @@ import java.nio.file.Path;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-public class PageObjectTest {
+public class TitleTest {
     WebDriver driver;
     HomePage homePage;
 
@@ -22,6 +20,7 @@ public class PageObjectTest {
     public void setUp(){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
+        homePage = new HomePage(driver);
     }
 
     @AfterClass
@@ -31,9 +30,8 @@ public class PageObjectTest {
 
     @Test
     public void titleTest(){
-        homePage = new HomePage(driver);
         homePage.open();
-        assertTrue(homePage.checkTitle());
+        assertEquals(homePage.getTitle(), "My Store");
     }
 
 }

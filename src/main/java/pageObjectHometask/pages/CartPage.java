@@ -7,15 +7,23 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pageObjectHometask.data.PageData;
 
+import java.nio.file.Path;
 import java.util.List;
 
 public class CartPage {
     WebDriver driver;
+    PageData pageData;
 
     public CartPage(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
+        pageData = new PageData();
+    }
+
+    public void open(){
+        driver.get(PageData.cartUrl);
     }
 
     @FindBy(xpath = "//a[@title='Proceed to checkout']")

@@ -10,11 +10,12 @@ import java.util.List;
 
 public class DressPage {
     private WebDriver driver;
+    private PageData pageData;
 
     public DressPage(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
-        PageData pageData = new PageData();
+        pageData = new PageData();
     }
 
     public void open(){
