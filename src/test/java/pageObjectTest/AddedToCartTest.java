@@ -33,6 +33,7 @@ public class AddedToCartTest {
         dressPage.open();
 
         try {
+            //adding to cart by id as there are several items with the same name
             cart.addItemToCart("7");
             cart.proceedToCheckout();
             assertTrue(cart.checkIfAddedToCart("Chiffon"));
