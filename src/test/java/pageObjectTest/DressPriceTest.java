@@ -25,17 +25,11 @@ public class DressPriceTest {
         driver.quit();
     }
 
-    //@Test(dependsOnGroups = "PageObjectTest.titleTest")
     @Test
     public void checkDressPriceTest(){
-
         DressPage dressPage = new DressPage(driver);
         dressPage.open();
 
-        try {
-            assertTrue(dressPage.checkPrice("Chiffon", "$16.40"));
-        }catch (Exception e){
-            assert false;
-        }
+        assertTrue(dressPage.checkPrice("Chifon", "$16.40"));
     }
 }
