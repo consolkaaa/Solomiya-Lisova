@@ -28,18 +28,13 @@ public class AddedToCartTest {
     }
 
     @Test
-    public void addToCartTest(){
+    public void addItemToCartAndCheckIfAddedTest(){
         DressPage dressPage = new DressPage(driver);
         dressPage.open();
 
-        try {
-            //adding to cart by id as there are several items with the same name
-            cart.addItemToCart("7");
-            cart.proceedToCheckout();
-            assertTrue(cart.checkIfAddedToCart("Chiffon"));
+        cart.addItemToCart("7");
+        cart.proceedToCheckout();
+        assertTrue(cart.isAddedToCart("Chiffon"));
 
-        }catch (Exception e){
-            assert false;
-        }
     }
 }

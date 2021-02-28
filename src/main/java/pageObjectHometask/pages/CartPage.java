@@ -9,8 +9,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjectHometask.data.PageData;
 
-import java.nio.file.Path;
 import java.util.List;
+import java.util.Optional;
 
 public class CartPage {
     WebDriver driver;
@@ -40,8 +40,9 @@ public class CartPage {
         return "//a[@data-id-product = \'" + id + "\' and @title = 'Add to cart']";
     }
 
-    public void addItemToCart(String id) throws Exception{
+    public void addItemToCart(String id) {
         //Driver clicks on the dressBox in order for the button to be visible
+
         driver.findElement(By.xpath(findWayToDressBox(id))).click();
         driver.findElement(By.xpath(findWayToDress(id))).click();
     }
@@ -52,16 +53,14 @@ public class CartPage {
         wait.until(ExpectedConditions.elementToBeClickable(checkoutButton)).click();
     }
 
-    private WebElement findInTheCart(String dressName) throws Exception{
+    private Optional findInTheCart(String dressName) {
         return elementsInTheCart.stream()
                 .filter(element -> element.getText().contains(dressName))
-                .findAny()
-                .orElseThrow();
+                .findAny();
     }
 
-    public boolean checkIfAddedToCart(String dressName) throws Exception{
-        WebElement dress = findInTheCart(dressName);
-        return true;
+    public boolean isAddedToCart(String dressName) {
+        return findInTheCart(dressName).isPresent();
     }
 
 }

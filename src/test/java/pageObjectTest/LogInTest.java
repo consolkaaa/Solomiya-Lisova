@@ -37,7 +37,7 @@ public class LogInTest {
 
         logInPage.logIn("o19lisova@gmail.com", "lalala111");
 
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         assertEquals(driver.getCurrentUrl(), PageData.myAccountUrl);
     }
 

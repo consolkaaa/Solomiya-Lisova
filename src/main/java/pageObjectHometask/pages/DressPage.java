@@ -26,7 +26,7 @@ public class DressPage {
     @FindBy(xpath = "//li[contains(@class, 'ajax_block_product')]")
     List<WebElement> elementList;
 
-    public boolean checkPrice(String dressToCheck, String price){
+    public boolean hasDressWithPrice(String dressToCheck, String price){
          return elementList.stream()
                     .filter(element -> element.getText().contains(dressToCheck) & element.getText().contains(price))
                     .findAny()
