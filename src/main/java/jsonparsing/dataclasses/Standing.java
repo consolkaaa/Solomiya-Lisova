@@ -2,9 +2,7 @@ package jsonparsing.dataclasses;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import jsonparsing.JsonParsing;
-import org.json.simple.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
