@@ -32,19 +32,19 @@ public class CartPage {
     @FindBy(xpath = "//tr[contains(@class,'cart_item')]")
     private List<WebElement> elementsInTheCart;
 
-    private String findWayToDressBox(String id) {
+    private String getWayToDressBox(String id) {
         return "//a[@data-id-product = \'" + id + "\']/ancestor::div[@class = 'right-block']";
     }
 
-    private String findWayToDress(String id) {
+    private String getWayToDress(String id) {
         return "//a[@data-id-product = \'" + id + "\' and @title = 'Add to cart']";
     }
 
     public void addItemToCart(String id) {
         //Driver clicks on the dressBox in order for the button to be visible
 
-        driver.findElement(By.xpath(findWayToDressBox(id))).click();
-        driver.findElement(By.xpath(findWayToDress(id))).click();
+        driver.findElement(By.xpath(getWayToDressBox(id))).click();
+        driver.findElement(By.xpath(getWayToDress(id))).click();
     }
 
     public void proceedToCheckout(){
