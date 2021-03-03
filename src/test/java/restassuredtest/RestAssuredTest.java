@@ -1,23 +1,17 @@
 package restassuredtest;
 
-import com.fasterxml.jackson.databind.util.BeanUtil;
-import com.sun.xml.bind.v2.runtime.reflect.opt.Const;
-import io.restassured.module.jsv.JsonSchemaValidator;
 import jsonparsing.dataclasses.Constructors;
-import org.hamcrest.Matchers;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
+import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
@@ -48,7 +42,9 @@ public class RestAssuredTest {
         List<Constructors> constructorsList = given().when().get(URL).then().statusCode(200).extract().body().jsonPath()
                 .getList("MRData.ConstructorTable.Constructors", Constructors.class);
 
-        Constructors mercedes = constructorsList.stream().filter(el -> el.getName().equals("Mercedes")).findAny().orElseThrow();
+        Constructors mercedes = constructorsList.stream()
+                .filter(el -> el.getName().equals("Mercedes"))
+                .findAny().orElseThrow();
 
         Assert.assertTrue(mercedes.getName().equals("Mercedes")
                 & mercedes.getUrl().equals("http://en.wikipedia.org/wiki/Mercedes-Benz_in_Formula_One")
@@ -58,9 +54,9 @@ public class RestAssuredTest {
     }
 
     @Test
-    public void isJsonSchemaCorrect() {
+    public void isJsonSchemaCorrect(){
 
-        given().when().get("http://ergast.com/api/f1/2010/constructors").then().assertThat()
+        get("http://ergast.com/api/f1/2010/constructors").then().assertThat()
                 .body(matchesJsonSchemaInClasspath("./src/test/resources/schema.json"));
 
     }
