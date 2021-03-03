@@ -33,7 +33,7 @@ public class RestAssuredTest {
         List<String> companies = given().when().get(URL).then().statusCode(200)
                 .extract().path("MRData.ConstructorTable.Constructors.name");
 
-        Assert.assertTrue(expectedCompanies.equals(companies));
+        Assert.assertTrue(companies.equals(expectedCompanies));
     }
 
     @Test
