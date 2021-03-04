@@ -19,25 +19,25 @@ public class RestAssuredTest {
     private static final String URL = "http://ergast.com/api/f1/2010/constructors.json";
 
     @Test
-    public void isNumberOfConstructorsInResponseCorrect(){
+    public void verifyThatNumberOfConstructorsISCorrect(){
         List<Constructors> constructorsList = given().when().get(URL).then().statusCode(200).extract().body()
                 .jsonPath().getList("MRData.ConstructorTable.Constructors", Constructors.class);
-        Assert.assertEquals(constructorsList.size(), 12);
+        Assert.assertEquals(constructorsList.size(), 12, "The constructors number in response matches expected");
     }
 
     @Test
-    public void doesCompaniesNamesMatchExpected(){
+    public void verifyThatCompaniesNamesMatchExpected(){
         List<String> expectedCompanies = new ArrayList(
                 Arrays.asList("Ferrari", "Force India", "HRT", "Lotus", "McLaren", "Mercedes", "Red Bull", "Renault", "Sauber", "Toro Rosso", "Virgin", "Williams"));
 
         List<String> companies = given().when().get(URL).then().statusCode(200)
                 .extract().path("MRData.ConstructorTable.Constructors.name");
 
-        Assert.assertTrue(companies.equals(expectedCompanies));
+        Assert.assertTrue(companies.equals(expectedCompanies), "Companies mames match expected");
     }
 
     @Test
-    public void isMercedesInfoCorrect(){
+    public void verifyThatMercedesInfoIsCorrect(){
 
         List<Constructors> constructorsList = given().when().get(URL).then().statusCode(200).extract().body().jsonPath()
                 .getList("MRData.ConstructorTable.Constructors", Constructors.class);
@@ -49,15 +49,15 @@ public class RestAssuredTest {
         Assert.assertTrue(mercedes.getName().equals("Mercedes")
                 & mercedes.getUrl().equals("http://en.wikipedia.org/wiki/Mercedes-Benz_in_Formula_One")
                 & mercedes.getNationality().equals("German")
-                & mercedes.getConstructorId().equals("mercedes"));
+                & mercedes.getConstructorId().equals("mercedes"), "Mercedes info is correct");
 
     }
 
     @Test
-    public void isJsonSchemaCorrect(){
+    public void verifyThatJsonSchemaIsCorrect(){
 
-        get("http://ergast.com/api/f1/2010/constructors").then().assertThat()
-                .body(matchesJsonSchemaInClasspath("./src/test/resources/schema.json"));
+        given().get("http://ergast.com/api/f1/2010/constructors.json").then().assertThat()
+                .body(matchesJsonSchemaInClasspath("schema.json"));
 
     }
 }
