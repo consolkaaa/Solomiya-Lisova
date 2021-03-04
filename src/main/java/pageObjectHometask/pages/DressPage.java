@@ -8,6 +8,7 @@ import pageObjectHometask.data.PageData;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.TimeUnit;
 
 public class DressPage {
     private WebDriver driver;
@@ -25,6 +26,7 @@ public class DressPage {
     List<WebElement> elementList;
 
     public boolean hasDressWithPrice(String dressToCheck, String price){
+        System.out.println(elementList.get(0).getText());
          return elementList.stream()
                     .filter(element -> element.getText().contains(dressToCheck) & element.getText().contains(price))
                     .findAny()

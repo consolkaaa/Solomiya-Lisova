@@ -14,19 +14,7 @@ import java.util.concurrent.TimeUnit;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-public class LogInTest {
-    WebDriver driver;
-
-    @BeforeClass
-    public void setUp(){
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-    }
-
-    @AfterClass
-    public void tearDown(){
-        driver.quit();
-    }
+public class LogInTest extends ParentTest{
 
     @Test
     public void logInTest(){
@@ -35,7 +23,6 @@ public class LogInTest {
 
         logInPage.logIn("o19lisova@gmail.com", "lalala111");
 
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         assertEquals(driver.getCurrentUrl(), PageData.myAccountUrl, "Login succesful");
     }
 

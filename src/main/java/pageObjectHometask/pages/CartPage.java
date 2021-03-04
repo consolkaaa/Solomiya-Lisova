@@ -51,14 +51,10 @@ public class CartPage {
         wait.until(ExpectedConditions.elementToBeClickable(checkoutButton)).click();
     }
 
-    private Optional findInTheCart(String dressName) {
+    public boolean isAddedToCart(String dressName) {
         return elementsInTheCart.stream()
                 .filter(element -> element.getText().contains(dressName))
-                .findAny();
-    }
-
-    public boolean isAddedToCart(String dressName) {
-        return findInTheCart(dressName).isPresent();
+                .findAny().isPresent();
     }
 
 }

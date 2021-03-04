@@ -11,24 +11,11 @@ import pageObjectHometask.pages.DressPage;
 
 import static org.testng.Assert.assertTrue;
 
-public class AddedToCartTest {
-    WebDriver driver;
-    CartPage cart;
-
-    @BeforeClass
-    public void setUp(){
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        cart = new CartPage(driver);
-    }
-
-    @AfterClass
-    public void tearDown(){
-        driver.quit();
-    }
+public class AddedToCartTest extends ParentTest{
 
     @Test
     public void addItemToCartAndCheckIfAddedTest(){
+        CartPage cart = new CartPage(driver);
         DressPage dressPage = new DressPage(driver);
         dressPage.open();
 

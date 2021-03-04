@@ -10,26 +10,13 @@ import pageObjectHometask.pages.DressPage;
 
 import static org.testng.Assert.assertTrue;
 
-public class DressPriceTest {
-
-    WebDriver driver;
-
-    @BeforeClass
-    public void setUp(){
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-    }
-
-    @AfterClass
-    public void tearDown(){
-        driver.quit();
-    }
+public class DressPriceTest extends ParentTest{
 
     @Test
     public void checkDressPriceTest(){
         DressPage dressPage = new DressPage(driver);
         dressPage.open();
 
-        assertTrue(dressPage.hasDressWithPrice("Printed", "$50.99"), "A dress has specifies price");
+        assertTrue(dressPage.hasDressWithPrice("Printed Dress", "$50.99"), "A dress has specified price");
     }
 }

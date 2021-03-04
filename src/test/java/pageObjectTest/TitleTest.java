@@ -12,26 +12,13 @@ import java.nio.file.Path;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-public class TitleTest {
-    WebDriver driver;
-    HomePage homePage;
-
-    @BeforeClass
-    public void setUp(){
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        homePage = new HomePage(driver);
-    }
-
-    @AfterClass
-    public void tearDown(){
-        driver.quit();
-    }
+public class TitleTest extends ParentTest{
 
     @Test
     public void titleTest(){
+        HomePage homePage = new HomePage(driver);
         homePage.open();
-        assertEquals(homePage.getTitle(), "My Store");
+        assertEquals(homePage.getTitle(), "My Store", "The title is 'My Store'");
     }
 
 }
