@@ -82,6 +82,19 @@
             <artifactId>allure-selenide</artifactId>
             <version>2.13.8</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>5.19.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>5.19.0</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <build>
