@@ -30,6 +30,6 @@ public class DressPriceTest {
         DressPage dressPage = new DressPage(driver);
         dressPage.open();
 
-        assertTrue(dressPage.hasDressWithPrice("Chiffon", "$16.40"));
+        assertTrue(dressPage.hasDressWithPrice("Printed", "$50.99"), "A dress has specifies price");
     }
 }

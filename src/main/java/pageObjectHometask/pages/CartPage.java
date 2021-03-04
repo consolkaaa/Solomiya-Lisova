@@ -14,12 +14,10 @@ import java.util.Optional;
 
 public class CartPage {
     WebDriver driver;
-    PageData pageData;
 
     public CartPage(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
-        pageData = new PageData();
     }
 
     public void open(){

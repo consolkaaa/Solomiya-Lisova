@@ -15,8 +15,6 @@ public class DressPage {
 
     public DressPage(WebDriver driver){
         this.driver = driver;
-        PageFactory.initElements(driver, this);
-        pageData = new PageData();
     }
 
     public void open(){

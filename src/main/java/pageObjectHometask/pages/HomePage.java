@@ -13,7 +13,6 @@ public class HomePage {
     public HomePage(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
-        PageData pageData = new PageData();
     }
 
     @FindBy (id = "search_query_top")

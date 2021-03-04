@@ -16,13 +16,11 @@ import static org.testng.Assert.assertTrue;
 
 public class LogInTest {
     WebDriver driver;
-    PageData pageData;
 
     @BeforeClass
     public void setUp(){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        pageData = new PageData();
     }
 
     @AfterClass
@@ -38,7 +36,7 @@ public class LogInTest {
         logInPage.logIn("o19lisova@gmail.com", "lalala111");
 
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        assertEquals(driver.getCurrentUrl(), PageData.myAccountUrl);
+        assertEquals(driver.getCurrentUrl(), PageData.myAccountUrl, "Login succesful");
     }
 
 }

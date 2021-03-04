@@ -34,7 +34,7 @@ public class AddedToCartTest {
 
         cart.addItemToCart("7");
         cart.proceedToCheckout();
-        assertTrue(cart.isAddedToCart("Chiffon"));
+        assertTrue(cart.isAddedToCart("Chiffon"), "A dress must be added to cart");
 
     }
 }
