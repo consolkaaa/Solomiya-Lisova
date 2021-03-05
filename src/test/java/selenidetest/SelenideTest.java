@@ -12,6 +12,7 @@ public class SelenideTest {
     HomePage homePage;
     private static final String EXPECTED_NAME = "Blouse";
     private static final String EXPECTED_PRICE = "$27.00";
+    private static final String CATEGORY = "dress";
     private static final String NAME = EXPECTED_NAME;
 
     @BeforeSuite
@@ -29,7 +30,7 @@ public class SelenideTest {
     public void openDressPageAndSelectDress(){
         homePage = new HomePage()
                 .openPage()
-                .searchFor("dress")
+                .searchFor(CATEGORY)
                 .clickOnDress(NAME);
     }
 
