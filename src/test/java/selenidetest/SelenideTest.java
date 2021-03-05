@@ -27,9 +27,10 @@ public class SelenideTest {
 
     @BeforeClass
     public void openDressPageAndSelectDress(){
-        homePage = new HomePage().openPage();
-        homePage.searchFor("dress")
-                .clickOnDress(homePage.product.getName());
+        homePage = new HomePage()
+                .openPage()
+                .searchFor("dress")
+                .clickOnDress(NAME);
     }
 
     @Test
