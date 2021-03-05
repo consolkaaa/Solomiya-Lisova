@@ -4,14 +4,15 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import org.testng.annotations.*;
 import selenide.HomePage;
-import selenide.ProductPage;
 
-import static com.codeborne.selenide.Selenide.*;
 import static org.testng.Assert.assertTrue;
 
 
 public class SelenideTest {
-    ProductPage productPage;
+    HomePage homePage;
+    private static final String EXPECTED_NAME = "Blouse";
+    private static final String EXPECTED_PRICE = "$27.00";
+    private static final String NAME = EXPECTED_NAME;
 
     @BeforeSuite
     public void setUp(){
@@ -26,33 +27,31 @@ public class SelenideTest {
 
     @BeforeClass
     public void openDressPageAndSelectDress(){
-        HomePage homePage = new HomePage().openPage();
-        homePage.searchFor("dress");
-
-        productPage = homePage.clickOnDress("Blouse");
+        homePage = new HomePage().openPage();
+        homePage.searchFor("dress")
+                .clickOnDress(homePage.product.getName());
     }
 
     @Test
     public void verifyThatNameAndPriceAreCorrect(){
-        assertTrue(productPage.isNameOfProductCorrect("Blouse")
-                          & productPage.isPriceOfProductCorrect("$27.00"), "Name and price of the product are correct");
+        assertTrue(homePage.isNameOfProductCorrect(EXPECTED_NAME)
+                          & homePage.isPriceOfProductCorrect(EXPECTED_PRICE),
+                   "Name and price of the product are correct");
     }
 
     @Test
     public void addToCartButtonIsDisplayedTest(){
-        assertTrue(productPage.isAddToCartButtonDisplayed(), "Add to cart button is displayed");
+        assertTrue(homePage.isAddToCartButtonDisplayed(), "Add to cart button is displayed");
     }
 
     @Test
     public void quantityIsDisplayedTest(){
-        assertTrue(productPage.isQuantityDisplayed(), "Quantity field is displayed");
+        assertTrue(homePage.isQuantityDisplayed(), "Quantity field is displayed");
     }
 
     @Test
     public void sizeIsDisplayedTest(){
-        assertTrue(productPage.isSizeDisplayed(), "Size field is displayed");
+        assertTrue(homePage.isSizeDisplayed(), "Size field is displayed");
     }
-
-
 
 }
