@@ -1,7 +1,11 @@
 package restassuredtest;
 
+import io.restassured.response.Response;
+import io.restassured.response.ValidatableResponse;
 import jsonparsing.dataclasses.Constructors;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.io.File;
@@ -17,10 +21,16 @@ import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInC
 
 public class RestAssuredTest {
     private static final String URL = "http://ergast.com/api/f1/2010/constructors.json";
+    private ValidatableResponse response;
+
+    @BeforeClass
+    public void beforeResponse(){
+        response = given().when().get(URL).then();
+    }
 
     @Test
     public void verifyThatNumberOfConstructorsISCorrect(){
-        List<Constructors> constructorsList = given().when().get(URL).then().statusCode(200).extract().body()
+        List<Constructors> constructorsList = response.statusCode(200).extract().body()
                 .jsonPath().getList("MRData.ConstructorTable.Constructors", Constructors.class);
         Assert.assertEquals(constructorsList.size(), 12, "The constructors number in response matches expected");
     }
@@ -30,7 +40,7 @@ public class RestAssuredTest {
         List<String> expectedCompanies = new ArrayList(
                 Arrays.asList("Ferrari", "Force India", "HRT", "Lotus", "McLaren", "Mercedes", "Red Bull", "Renault", "Sauber", "Toro Rosso", "Virgin", "Williams"));
 
-        List<String> companies = given().when().get(URL).then().statusCode(200)
+        List<String> companies = response.statusCode(200)
                 .extract().path("MRData.ConstructorTable.Constructors.name");
 
         Assert.assertTrue(companies.equals(expectedCompanies), "Companies mames match expected");
@@ -39,7 +49,7 @@ public class RestAssuredTest {
     @Test
     public void verifyThatMercedesInfoIsCorrect(){
 
-        List<Constructors> constructorsList = given().when().get(URL).then().statusCode(200).extract().body().jsonPath()
+        List<Constructors> constructorsList = response.statusCode(200).extract().body().jsonPath()
                 .getList("MRData.ConstructorTable.Constructors", Constructors.class);
 
         Constructors mercedes = constructorsList.stream()
@@ -55,9 +65,6 @@ public class RestAssuredTest {
 
     @Test
     public void verifyThatJsonSchemaIsCorrect(){
-
-        given().get("http://ergast.com/api/f1/2010/constructors.json").then().assertThat()
-                .body(matchesJsonSchemaInClasspath("schema.json"));
-
+        response.assertThat().body(matchesJsonSchemaInClasspath("schema.json"));
     }
 }
