@@ -5,21 +5,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import jsonparsing.dataclasses.Standing;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 public class JsonParsing {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
 
         File file = new File("standing.json");
 
-        try {
-            List<Standing> standingList = mapper.readValue(file, new TypeReference<List<Standing>>(){});
-            System.out.println(standingList);
-
-        }catch (Exception e){
-            System.out.println("Oops, something went wrong" + e);
-        }
+        List<Standing> standingList = mapper.readValue(file, new TypeReference<List<Standing>>(){});
+        System.out.println(standingList);
     }
 }
