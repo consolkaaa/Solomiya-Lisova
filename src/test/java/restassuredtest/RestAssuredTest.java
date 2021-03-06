@@ -56,10 +56,13 @@ public class RestAssuredTest {
                 .filter(el -> el.getName().equals("Mercedes"))
                 .findAny().orElseThrow();
 
-        Assert.assertTrue(mercedes.getName().equals("Mercedes")
-                & mercedes.getUrl().equals("http://en.wikipedia.org/wiki/Mercedes-Benz_in_Formula_One")
-                & mercedes.getNationality().equals("German")
-                & mercedes.getConstructorId().equals("mercedes"), "Mercedes info is correct");
+        Constructors expected = new Constructors();
+        expected.setName("Mercedes");
+        expected.setUrl("http://en.wikipedia.org/wiki/Mercedes-Benz_in_Formula_One");
+        expected.setNationality("German");
+        expected.setConstructorId("mercedes");
+
+        Assert.assertTrue(mercedes.equals(expected), "Mercedes info is correct");
 
     }
 

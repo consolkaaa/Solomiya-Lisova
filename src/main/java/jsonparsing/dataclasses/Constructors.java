@@ -1,5 +1,7 @@
 package jsonparsing.dataclasses;
 
+import java.util.Objects;
+
 public class Constructors {
 
     private String constructorId;
@@ -49,6 +51,29 @@ public class Constructors {
                 + "}";
     }
 
+    @Override
+    public boolean equals(Object obj){
 
+        if (obj == null){
+            return false;
+        }
+        if (obj == this){
+            return true;
+        }
+        Constructors constructors = (Constructors) obj;
+
+        if (this.getName().equals(constructors.getName())
+            & this.getUrl().equals(constructors.getUrl())
+            & this.getConstructorId().equals(constructors.getConstructorId())
+            & this.getNationality().equals(constructors.getNationality())){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode(){
+        return Objects.hash(constructorId, name, url, nationality);
+    }
 
 }
