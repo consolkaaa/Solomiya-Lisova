@@ -1,5 +1,6 @@
 package pageObjectHometask.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,20 +14,18 @@ import java.util.concurrent.TimeUnit;
 public class DressPage {
     private WebDriver driver;
     private PageData pageData;
+    private List<WebElement> elementList;
 
     public DressPage(WebDriver driver){
         this.driver = driver;
+        elementList = driver.findElements(By.xpath("//div[@class='product-container']"));
     }
 
     public void open(){
         driver.get(PageData.dressPageUrl);
     }
 
-    @FindBy(xpath = "//li[contains(@class, 'ajax_block_product')]")
-    List<WebElement> elementList;
-
     public boolean hasDressWithPrice(String dressToCheck, String price){
-        System.out.println(elementList.get(0).getText());
          return elementList.stream()
                     .filter(element -> element.getText().contains(dressToCheck) & element.getText().contains(price))
                     .findAny()
