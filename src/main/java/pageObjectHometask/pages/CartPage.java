@@ -46,9 +46,7 @@ public class CartPage {
     }
 
     public void proceedToCheckout(){
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-
-        wait.until(ExpectedConditions.elementToBeClickable(checkoutButton)).click();
+        checkoutButton.click();
     }
 
     public boolean isAddedToCart(String dressName) {
